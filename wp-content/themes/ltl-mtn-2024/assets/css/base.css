@@ -1,0 +1,140 @@
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: white;
+  font-family: var(--primary);
+  font-weight: 300;
+  line-height: 1.5;
+  color: black;
+}
+
+a {
+  color: var(--mustard);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--mustard);
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+.content-width {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--desktop);
+  width: calc( 100% - 2rem );
+}
+
+.slim {
+  max-width: 800px;
+}
+
+.menu-toggle {
+  cursor: pointer;
+}
+
+.menu-toggle:hover {
+  color: var(--copper);
+}
+
+body:not(.menu-active) .menu-close,
+body.menu-active .menu-open {
+  display: none;
+}
+
+header {
+  position: relative;
+}
+
+.homepage-section.intro {
+  min-height: 70vh;
+}
+
+.homepage-section {
+  min-height: 110vh;
+}
+
+.section-heading {
+  position: sticky;
+  top: 0;
+}
+
+.main {
+  margin: 2rem auto;
+  max-width: var(--desktop);
+  width: calc( 100% - 2rem );
+}
+
+.intro-container {
+  max-width: 740px;
+}
+
+h1.wp-block-heading {
+  font: normal 2rem/1 var(--secondary);
+  margin-bottom: 1rem;
+}
+
+.homepage-section .heading-areas {
+  align-items: end;
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 0 auto;
+}
+
+.homepage-section .logo {
+  padding: 1rem 1rem 0 1rem;
+}
+
+.homepage-section.work {
+  background-color: var(--mustard);
+}
+
+.homepage-section.team {
+  background-color: black;
+  color: white;
+}
+
+.homepage-section.work .logo {
+  background-color: white;
+}
+
+.homepage-section.team .logo {
+  background-color: var(--mustard);
+}
+
+.homepage-section.contact .logo {
+  background-color: black;
+}
+
+.homepage-section .logo img {
+  translate: 0 1px;
+}
+
+.homepage-section.work nav a {
+  color: white;
+}
+
+.homepage-section nav ul {
+  display: flex;
+  gap: 1rem;
+  list-style-type: none;
+  padding: 1rem;
+}
+
+.scroll2me .logo img,
+.scroll2me nav {
+  opacity: 0;
+  transition: all 500ms linear;
+}
+
+.scroll2me.active .logo img,
+.scroll2me.active nav {
+  opacity: 1;
+}

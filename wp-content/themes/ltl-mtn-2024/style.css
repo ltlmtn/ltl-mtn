@@ -1,0 +1,87 @@
+/*
+Theme Name: LTL MTN 2024
+Theme URI:
+Author: Elliot Toman
+Author URI: https://www.asubtleweb.com
+Description: 
+Version: 1.0
+License: 
+License URI: 
+Tags: 
+Text Domain: 
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root {
+    --primary: 'Rubik', sans-serif;
+    --secondary: 'Old Standard TT', serif;
+    --mustard: #DAB108;
+    --desktop: 1120px;
+    --slim: 800px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+
+.asw .has-white-color { color: white; }
+.asw .has-white-background-color { background-color: white; }
+.asw .has-black-color { color: black; }
+.asw .has-black-background-color { background-color: black; }
+.asw .has-mustard-color { color: var(--mustard); }
+.asw .has-mustard-background-color { background-color: var(--mustard); }
+
+
+/* Full width video embeds */
+.is-type-video .wp-block-embed__wrapper {
+    height: 0;
+    padding-top: 60%;
+    position: relative;
+    width: 100%;
+}
+
+.is-type-video .wp-block-embed__wrapper iframe {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.asw video {
+    display: block;
+    max-width: 100%;
+}
+
+#wpadminbar {
+  opacity: 0.1;
+}
+
+#wpadminbar:hover {
+  opacity: 1;
+}
+
+.grecaptcha-badge {
+    display: none !important;
+}
+
+.back-to-top-link {
+    bottom: -4rem;
+    opacity: 0;
+    right: 1rem;
+    position: fixed;
+    transition: all 1s linear;
+}
+
+body.scrolled .back-to-top-link {
+    bottom: 1rem;
+    opacity: 1;
+}

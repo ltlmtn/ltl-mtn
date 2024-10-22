@@ -1,0 +1,38 @@
+@media screen and (min-width: 800px) {
+    .homepage-section .heading-areas {
+        grid-template-columns: 33.33% 1fr;
+    }
+    
+    .homepage-section .section-heading {
+        margin: 0 auto;
+    }
+    
+    .homepage-section nav ul {
+        justify-content: flex-end;
+        padding: 0;
+    }
+    
+    .homepage-section .logo {
+        padding: 1rem 0 0 0;
+    }
+    
+    section.homepage-section.work nav a {
+        color: black;
+    }
+    
+    .homepage-section .heading-areas {
+        width: calc( 100% - 2rem );
+    }
+    
+    .homepage-section.work .section-heading {
+        background-color: white;
+    }
+    
+    .homepage-section.team .section-heading {
+        background-color: var(--mustard);
+    }
+    
+    .homepage-section.contact .section-heading {
+        background-color: black;
+    }
+}
