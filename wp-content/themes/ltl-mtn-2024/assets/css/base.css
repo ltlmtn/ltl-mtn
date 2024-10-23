@@ -86,6 +86,7 @@ h1.wp-block-heading {
   display: grid;
   grid-template-columns: 1fr;
   margin: 0 auto;
+  max-width: var(--desktop);
 }
 
 .homepage-section .logo {
@@ -94,6 +95,26 @@ h1.wp-block-heading {
 
 .homepage-section.work {
   background-color: var(--mustard);
+}
+
+.homepage-section.work nav a {
+  color: black;
+}
+
+.homepage-section.team nav a {
+  color: white;
+}
+
+.homepage-section.work .slogan {
+  color: white;
+}
+
+.homepage-section.team .slogan {
+  color: var(--mustard);
+}
+
+.homepage-section.contact .slogan {
+  color: black;
 }
 
 .homepage-section.team {
@@ -117,10 +138,6 @@ h1.wp-block-heading {
   translate: 0 1px;
 }
 
-.homepage-section.work nav a {
-  color: white;
-}
-
 .homepage-section nav ul {
   display: flex;
   gap: 1rem;
@@ -135,6 +152,19 @@ h1.wp-block-heading {
 }
 
 .scroll2me.active .logo img,
-.scroll2me.active nav {
+.scroll2me.active nav,
+.scroll2me:target .logo img,
+.scroll2me:target nav {
   opacity: 1;
+}
+
+#work .anchor-menu .work-link a,
+#team .anchor-menu .team-link a,
+#contact .anchor-menu .contact-link a {
+  font-weight: bold;
+}
+
+.slogan h1 {
+  font: normal 1rem var(--primary);
+  margin-bottom: 0;
 }

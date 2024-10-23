@@ -135,3 +135,4 @@ function woocommerce_header_add_to_cart_fragment($fragments) {
 // Include Extras
 get_template_part('customizations/page-seo');
 get_template_part('customizations/customizations');
+get_template_part('customizations/portfolio-post-type');

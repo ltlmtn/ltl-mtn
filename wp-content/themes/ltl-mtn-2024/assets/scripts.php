@@ -42,6 +42,18 @@
     });
   });
 
+  // Add ".active" to the classlist of a .scroll2me element if it is the page target
+  jQuery(document).ready(function() {
+    var target = window.location.hash;
+    if (target) {
+      var targetElement = jQuery(target);
+      if (targetElement.hasClass('scroll2me')) {
+        jQuery('.scroll2me').removeClass('active');
+        targetElement.addClass('active');
+      }
+    }
+  });
+
 </script>
 
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
