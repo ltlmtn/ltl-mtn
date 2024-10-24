@@ -84,17 +84,22 @@ h1.wp-block-heading {
 .homepage-section .heading-areas {
   align-items: end;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 66.66% auto;
   margin: 0 auto;
   max-width: var(--desktop);
 }
 
 .homepage-section .logo {
-  padding: 1rem 1rem 0 1rem;
+  padding: 3rem 1rem 0 1rem;
 }
 
-.homepage-section.work {
+.homepage-section.work,
+.homepage-section.work nav {
   background-color: var(--mustard);
+}
+
+.homepage-section nav {
+  grid-column: 1 / span 2;
 }
 
 .homepage-section.work nav a {
@@ -105,19 +110,31 @@ h1.wp-block-heading {
   color: white;
 }
 
-.homepage-section.work .slogan {
-  color: white;
+.homepage-section .slogan {
+  align-items: flex-end;
+  display: flex;
+  line-height: 1.25;
+  height: 100%;
+  width: 100%;
 }
 
-.homepage-section.team .slogan {
+.homepage-section.work .slogan {
+  background-color: white;
   color: var(--mustard);
 }
 
-.homepage-section.contact .slogan {
+.homepage-section.team .slogan {
+  background-color: var(--mustard);
   color: black;
 }
 
-.homepage-section.team {
+.homepage-section.contact .slogan {
+  background-color: black;
+  color: white;
+}
+
+.homepage-section.team,
+.homepage-section.team nav {
   background-color: black;
   color: white;
 }
@@ -128,6 +145,10 @@ h1.wp-block-heading {
 
 .homepage-section.team .logo {
   background-color: var(--mustard);
+}
+
+.homepage-section.contact nav {
+  background-color: white;
 }
 
 .homepage-section.contact .logo {
@@ -146,15 +167,18 @@ h1.wp-block-heading {
 }
 
 .scroll2me .logo img,
-.scroll2me nav {
+.scroll2me nav,
+.scroll2me .slogan span {
   opacity: 0;
   transition: all 500ms linear;
 }
 
 .scroll2me.active .logo img,
 .scroll2me.active nav,
+.scroll2me.active .slogan span,
 .scroll2me:target .logo img,
-.scroll2me:target nav {
+.scroll2me:target nav,
+.scroll2me:target .slogan span {
   opacity: 1;
 }
 
@@ -164,7 +188,41 @@ h1.wp-block-heading {
   font-weight: bold;
 }
 
-.slogan h1 {
-  font: normal 1rem var(--primary);
-  margin-bottom: 0;
+.slogan h1,
+.slogan span {
+  font: normal 1rem/1.25 var(--primary);
+  margin-bottom: 0.05rem;
+}
+
+.portfolio-item {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+.portfolio-item .quote {
+  color: white;
+}
+
+.portfolio-item .quote .attribution {
+  font-weight: 500;
+  line-height: 1.25;
+  margin-top: 0.5em;
+}
+
+h2 {
+  font: normal 2rem var(--secondary);
+  margin-bottom: 1rem;
+}
+
+.portfolio-item a.button {
+  background-color: white;
+  margin-top: 1rem;
+}
+
+a.button {
+  border-radius: 2px;
+  display: inline-block;
+  font-weight: 600;
+  padding: 1rem;
 }

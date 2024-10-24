@@ -21,11 +21,12 @@
                 <img src="<?php echo $theme; ?>/assets/images/logo-on-white.svg" alt="LTL Mountain Logo">
             </a>
             <div class="slogan">
-                <h1><?php echo $slogan; ?></h1>
+                <span><h1><?php echo $slogan; ?></h1></span>
             </div>
             <?php get_template_part('snippets/homepage-anchors'); ?>
         </div>
     </div>
+    <?php get_template_part('snippets/homepage_work'); ?>
 </section>
 
 <section class="homepage-section team">
@@ -35,7 +36,7 @@
                 <img src="<?php echo $theme; ?>/assets/images/logo-on-mustard.svg" alt="LTL Mountain Logo">
             </a>
             <div class="slogan">
-                <?php echo $slogan; ?>
+                <span><?php echo $slogan; ?></span>
             </div>
             <?php get_template_part('snippets/homepage-anchors'); ?>
         </div>
@@ -49,7 +50,7 @@
                 <img src="<?php echo $theme; ?>/assets/images/logo-on-black.svg" alt="LTL Mountain Logo">
             </a>
             <div class="slogan">
-                <?php echo $slogan; ?>
+                <span><?php echo $slogan; ?></span>
             </div>
             <?php get_template_part('snippets/homepage-anchors'); ?>
         </div>
