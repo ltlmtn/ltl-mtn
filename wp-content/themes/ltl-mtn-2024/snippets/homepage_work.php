@@ -5,6 +5,7 @@ $args = array(
     'post_type'      => 'portfolio',
     'posts_per_page' => -1,
     'orderby'        => 'menu_order',
+    'order'          => 'ASC',
     'meta_query'     => array(
         array(
             'key'     => '_portfolio_feature_on_homepage',
@@ -46,7 +47,7 @@ if ($query->have_posts()) {
                 echo '<h2>' . $descriptive_title . '</h2>';
                 echo '<p>' . $summary . '</p>';
                 if( $link ) {
-                    echo '<a href="' . $link . '" class="button">' . $link_label . '</a>';
+                    echo '<a href="' . $link . '" class="button" target="_blank">' . $link_label . '</a>';
                 }
             echo '</div>';
         echo '</div>';

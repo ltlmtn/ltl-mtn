@@ -29,15 +29,44 @@
         width: calc( 100% - 2rem );
     }
     
-    .homepage-section.work .section-heading {
+    .homepage-section.work .section-heading,
+    .homepage-section.work nav {
         background-color: white;
     }
     
-    .homepage-section.team .section-heading {
+    .homepage-section.team .section-heading,
+    .homepage-section.team nav {
         background-color: var(--mustard);
     }
     
-    .homepage-section.contact .section-heading {
+    .homepage-section.contact .section-heading,
+    .homepage-section.contact nav {
         background-color: black;
+    }
+
+    .homepage-portfolio {
+        padding: 2rem 0;
+    }
+
+    .portfolio-item {
+        grid-gap: 2rem;
+        grid-template-areas: "quote quote" "image content";
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .portfolio-item .quote {
+        grid-area: quote;
+    }
+    
+    .portfolio-item .portfolio-image {
+        grid-area: image;
+    }
+    
+    .portfolio-item .portfolio-content {
+        grid-area: content;
+    }
+
+    .portfolio-item:nth-of-type(even) {
+        grid-template-areas: "quote quote" "content image";
     }
 }

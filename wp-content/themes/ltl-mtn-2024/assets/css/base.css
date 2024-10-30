@@ -198,6 +198,7 @@ h1.wp-block-heading {
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: 1fr;
+  margin-bottom: 2rem;
 }
 
 .portfolio-item .quote {
@@ -210,6 +211,19 @@ h1.wp-block-heading {
   margin-top: 0.5em;
 }
 
+a.button {
+  background-color: var(--mustard);
+  border-radius: 2px;
+  color: white;
+  display: inline-block;
+  font-weight: 600;
+  padding: 1rem;
+}
+
+a.button:hover {
+  background-color: black;
+}
+
 h2 {
   font: normal 2rem var(--secondary);
   margin-bottom: 1rem;
@@ -217,12 +231,20 @@ h2 {
 
 .portfolio-item a.button {
   background-color: white;
+  color: var(--mustard);
   margin-top: 1rem;
 }
 
-a.button {
-  border-radius: 2px;
-  display: inline-block;
-  font-weight: 600;
-  padding: 1rem;
+.portfolio-item a.button:hover {
+  background-color: black;
+  color: white;
+}
+
+.homepage-portfolio {
+  padding: 1rem 0;
+}
+
+.portfolio-item .portfolio-content a {
+  color: black;
+  font-weight: bold;
 }

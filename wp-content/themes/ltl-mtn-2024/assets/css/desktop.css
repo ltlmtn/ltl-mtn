@@ -1,2 +1,16 @@
 @media screen and (min-width: 1120px) {
+
+    .portfolio-item {
+        grid-template-areas: 
+            "quote quote quote quote quote" 
+            "image image image content content";
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .portfolio-item:nth-of-type(even) {
+        grid-template-areas: 
+            "quote quote quote quote quote" 
+            "content content image image image";
+    }
+    
 }
