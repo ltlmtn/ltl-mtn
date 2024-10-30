@@ -12,5 +12,14 @@
             "quote quote quote quote quote" 
             "content content image image image";
     }
+
+    .bios-grid {
+        grid-gap: 4rem;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .homepage-team {
+      padding: 4rem 0;
+    }
     
 }

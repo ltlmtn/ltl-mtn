@@ -64,6 +64,7 @@ header {
 .section-heading {
   position: sticky;
   top: 0;
+  z-index: 10;
 }
 
 .main {
@@ -247,4 +248,45 @@ h2 {
 .portfolio-item .portfolio-content a {
   color: black;
   font-weight: bold;
+}
+
+.page-content p {
+  margin-bottom: 1rem;
+}
+
+.homepage-team {
+  padding: 2rem 0;
+}
+
+.bio-image {
+  background-position: top center;
+  background-size: cover;
+  border-radius: 3px 3px 0 0;
+  height: 0;
+  filter: grayscale(1);
+  padding-top: 100%;
+}
+
+.bios-grid {
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: 1fr;
+}
+
+.bio-meta {
+  background-color: var(--mustard);
+  border-radius: 0 0 3px 3px;
+  display: flex;
+  gap: 0.5rem;
+  font-weight: 500;
+  padding: 0.5rem;
+}
+
+.bio-meta .name {
+  color: black;
+}
+
+.bio-content {
+  font-size: 0.85rem;
+  margin-top: 1rem;
 }

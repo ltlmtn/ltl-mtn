@@ -41,6 +41,7 @@
             <?php get_template_part('snippets/homepage-anchors'); ?>
         </div>
     </div>
+    <?php get_template_part('snippets/homepage_team'); ?>
 </section>
 
 <section class="homepage-section contact">

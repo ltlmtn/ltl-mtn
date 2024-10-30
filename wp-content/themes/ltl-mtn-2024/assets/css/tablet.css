@@ -33,15 +33,27 @@
     .homepage-section.work nav {
         background-color: white;
     }
+
+    .homepage-section.work .section-heading {
+        border-bottom: 3px solid var(--mustard);
+    }
     
     .homepage-section.team .section-heading,
     .homepage-section.team nav {
         background-color: var(--mustard);
     }
     
+    .homepage-section.team .section-heading {
+        border-bottom: 3px solid black;
+    }
+    
     .homepage-section.contact .section-heading,
     .homepage-section.contact nav {
         background-color: black;
+    }
+    
+    .homepage-section.contact .section-heading {
+        border-bottom: 3px solid white;
     }
 
     .homepage-portfolio {
@@ -68,5 +80,9 @@
 
     .portfolio-item:nth-of-type(even) {
         grid-template-areas: "quote quote" "content image";
+    }
+
+    .bios-grid {
+      grid-template-columns: 1fr 1fr;
     }
 }
