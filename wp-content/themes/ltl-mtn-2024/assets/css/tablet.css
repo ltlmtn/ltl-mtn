@@ -1,58 +1,58 @@
 @media screen and (min-width: 800px) {
-    .homepage-section .heading-areas {
+    .heading-section .heading-areas {
         grid-column-gap: 1rem;
         grid-template-columns: auto auto 1fr;
     }
 
-    .homepage-section nav {
+    .heading-section nav {
         grid-column: auto;
     }
     
-    .homepage-section .section-heading {
+    .heading-section .section-heading {
         margin: 0 auto;
     }
     
-    .homepage-section nav ul {
+    .heading-section nav ul {
         justify-content: flex-end;
         padding: 0;
     }
     
-    .homepage-section .logo {
+    .heading-section .logo {
         padding: 4rem 0 0 0;
     }
     
-    section.homepage-section.work nav a {
+    section.heading-section.work nav a {
         color: black;
     }
     
-    .homepage-section .heading-areas {
+    .heading-section .heading-areas {
         width: calc( 100% - 2rem );
     }
     
-    .homepage-section.work .section-heading,
-    .homepage-section.work nav {
+    .heading-section.work .section-heading,
+    .heading-section.work nav {
         background-color: white;
     }
 
-    .homepage-section.work .section-heading {
+    .heading-section.work .section-heading {
         border-bottom: 3px solid var(--mustard);
     }
     
-    .homepage-section.team .section-heading,
-    .homepage-section.team nav {
+    .heading-section.team .section-heading,
+    .heading-section.team nav {
         background-color: var(--mustard);
     }
     
-    .homepage-section.team .section-heading {
+    .heading-section.team .section-heading {
         border-bottom: 3px solid black;
     }
     
-    .homepage-section.contact .section-heading,
-    .homepage-section.contact nav {
+    .heading-section.contact .section-heading,
+    .heading-section.contact nav {
         background-color: black;
     }
     
-    .homepage-section.contact .section-heading {
+    .heading-section.contact .section-heading {
         border-bottom: 3px solid white;
     }
 
@@ -84,5 +84,11 @@
 
     .bios-grid {
       grid-template-columns: 1fr 1fr;
+    }
+
+    .contact-form .columns_1-1 {
+        display: grid;
+        grid-gap: 1rem;
+        grid-template-columns: 1fr 1fr;
     }
 }
