@@ -131,6 +131,15 @@ function woocommerce_header_add_to_cart_fragment($fragments) {
     return $fragments;
 }
 
+// Redirect 404 errors to homepage
+function redirect_404_to_homepage() {
+	if (is_404()) {
+		wp_redirect(home_url());
+		exit();
+	}
+}
+add_action('template_redirect', 'redirect_404_to_homepage');
+
 
 // Include Extras
 get_template_part('customizations/page-seo');
