@@ -6,7 +6,7 @@
 
 <footer>
     <div class="copyright content-width">
-        &copy; <?= date('Y'); ?> <?= $site_name; ?>
+        &copy; <?= date('Y'); ?> LTL MTN Inc.
     </div>
 </footer>
 

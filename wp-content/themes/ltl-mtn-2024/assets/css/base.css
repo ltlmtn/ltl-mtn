@@ -366,3 +366,112 @@ h2 {
   font-weight: 600;
   padding: 0 0.5rem;
 }
+
+.header-area-1 {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: 200px 1fr;
+  padding: 1rem 0 0 0;
+  position: relative;
+}
+
+.header-area-1:before {
+  background-color: black;
+  content: " ";
+  height: calc( 100% - 1px );
+  left: 50%;
+  position: absolute;
+  top: 0;
+  translate: -50% 0;
+  width: 100vw;
+  z-index: -1;
+}
+
+.page-header .slogan {
+  align-self: end;
+  color: white;
+  line-height: 1;
+  margin-bottom: 0.20em;
+}
+
+.header-area-2 {
+  align-items: end;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: 1fr auto;
+  padding: 1rem 0;
+}
+
+.page-header h1 {
+  font: 600 1.5rem var(--primary);
+  text-transform: uppercase;
+}
+
+.menu-toggle {
+  background-color: white;
+  border-radius: 3px 3px 0 0;
+  padding: 0.25rem;
+  font-size: 1.5rem;
+  line-height: 0;
+}
+
+body.menu-active .menu-toggle {
+  background-color: var(--mustard);
+}
+
+.page-header nav {
+  background-color: var(--mustard);
+  border-radius: 3px 0 3px 3px;
+  overflow: hidden;
+  max-height: 0;
+  position: absolute;
+  right: 1rem;
+  transition: all 500ms linear 0s;
+  translate: 0 -1rem;
+}
+
+.page-header nav a {
+  color: white;
+  font-size: 1.25rem;
+}
+
+.page-header nav a:hover {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.page-header nav li:not(:last-of-type) {
+  border-bottom: 1px solid black;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.page-header nav ul {
+  list-style-type: none;
+  padding: 1rem;
+}
+
+body.menu-active .page-header nav {
+  max-height: 600px;
+}
+
+body:not(.menu-active) .menu-toggle {
+  transition: background-color 500ms linear 500ms;
+}
+
+.archive-portfolio .quote {
+  color: var(--mustard);
+}
+
+.archive-portfolio .portfolio-item a.button {
+  background-color: var(--mustard);
+}
+
+footer {
+  background-color: black;
+  color: white;
+  padding: 1rem 0;
+}
+
+footer a {
+  color: var(--mustard);
+}

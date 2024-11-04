@@ -68,6 +68,7 @@
     
     .portfolio-item .quote {
         grid-area: quote;
+        max-width: 50%
     }
     
     .portfolio-item .portfolio-image {
