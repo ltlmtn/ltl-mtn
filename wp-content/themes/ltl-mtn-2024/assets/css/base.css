@@ -477,11 +477,6 @@ footer a {
   color: var(--mustard);
 }
 
-.portfolio-item-links {
-  align-items: flex-end;
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-top: 2rem;
+.portfolio-item-link {
+  margin: 2rem 0;
 }

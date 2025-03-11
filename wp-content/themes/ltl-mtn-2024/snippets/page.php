@@ -2,6 +2,11 @@
     $theme = get_stylesheet_directory_uri();
     $home_url = get_home_url();
     $slogan = get_bloginfo('description');
+    if( is_singular('portfolio') ) {
+        $back_link = '<a href="/porfolio">Our Work: </a>';
+    } else {
+        $back_link = '';
+    }
 ?>
 <header class="page-header">
     <div class="header-area-1 content-width">
@@ -13,7 +18,7 @@
         </div>
     </div>
     <div class="header-area-2 content-width">
-        <h1><?php the_title(); ?></h1>
+        <h1><?= $back_link; ?><?php the_title(); ?></h1>
         <div class="menu-toggle">
             <div class="menu-open"><ion-icon name="menu"></ion-icon></div>
             <div class="menu-close"><ion-icon name="close"></ion-icon></div>
@@ -38,12 +43,11 @@
             if( is_singular('portfolio') ) {
                 $link = get_post_meta($post->ID, '_portfolio_link', true);
                 $link_label = get_post_meta($post->ID, '_portfolio_link_label', true);
-                echo '<div class="portfolio-item-links">';
-                    echo '<a href="/portfolio" class="button back-button"><ion-icon name="arrow-back-outline"></ion-icon> Back to Porfolio</a>';
                 if( $link ) {
-                    echo '<a href="' . $link . '" class="button" target="_blank">' . $link_label . ' <ion-icon name="arrow-back-outline"></ion-icon></a>';
+                    echo '<div class="portfolio-item-link">';
+                        echo '<a href="' . $link . '" class="button" target="_blank">' . $link_label . ' <ion-icon name="open-outline"></ion-icon></a>';
+                    echo '</div>';
                 }
-                echo '</div>';
             }
         ?>
     </div>
