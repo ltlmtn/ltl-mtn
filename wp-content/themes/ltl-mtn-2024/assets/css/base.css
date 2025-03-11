@@ -73,7 +73,7 @@ header {
   width: calc( 100% - 2rem );
 }
 
-body:not(.home) .main {
+body:not(.homepage) .main {
   min-height: 90vh;
 }
 
