@@ -33,5 +33,18 @@
 <main>
     <div class="page-content content-width">
         <?php the_content(); ?>
+
+        <?php
+            if( is_singular('portfolio') ) {
+                $link = get_post_meta($post->ID, '_portfolio_link', true);
+                $link_label = get_post_meta($post->ID, '_portfolio_link_label', true);
+                echo '<div class="portfolio-item-links">';
+                    echo '<a href="/portfolio" class="button back-button"><ion-icon name="arrow-back-outline"></ion-icon> Back to Porfolio</a>';
+                if( $link ) {
+                    echo '<a href="' . $link . '" class="button" target="_blank">' . $link_label . ' <ion-icon name="arrow-back-outline"></ion-icon></a>';
+                }
+                echo '</div>';
+            }
+        ?>
     </div>
 </main>

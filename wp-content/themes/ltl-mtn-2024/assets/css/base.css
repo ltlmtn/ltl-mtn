@@ -70,6 +70,7 @@ header {
 .main {
   margin: 2rem auto;
   max-width: var(--desktop);
+  min-height: 90vh;
   width: calc( 100% - 2rem );
 }
 
@@ -474,4 +475,13 @@ footer {
 
 footer a {
   color: var(--mustard);
+}
+
+.portfolio-item-links {
+  align-items: flex-end;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 2rem;
 }
