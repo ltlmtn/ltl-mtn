@@ -92,7 +92,7 @@
     wp_reset_postdata();
     ?>
     </section>
-    <section class="portfolio-grid">
+    <section class="portfolio-grid content-width">
         <?php
             $args = array(
                 'post_type'      => 'portfolio',
@@ -111,6 +111,7 @@
         $query = new WP_Query($args);
         if ($query->have_posts()) {
             while ($query->have_posts()) {
+                $query->the_post();
                 $post_id = get_the_id();
                 $permalink = get_the_permalink($post_id);
                 $featured_image = get_the_post_thumbnail_url($post_id, 'medium');
