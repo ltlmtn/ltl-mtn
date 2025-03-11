@@ -70,8 +70,11 @@ header {
 .main {
   margin: 2rem auto;
   max-width: var(--desktop);
-  min-height: 90vh;
   width: calc( 100% - 2rem );
+}
+
+body:not(.home) .main {
+  min-height: 90vh;
 }
 
 .intro-container {

@@ -28,6 +28,7 @@
 
     .page-header nav {
         right: calc( (100vw - var(--desktop)) / 2 );
+        translate: 0.5rem -1rem;
     }
     
 }
