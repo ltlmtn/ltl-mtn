@@ -3,7 +3,7 @@
     $home_url = get_home_url();
     $slogan = get_bloginfo('description');
     if( is_singular('portfolio') ) {
-        $back_link = '<a href="/porfolio">Our Work: </a>';
+        $back_link = '<a href="/portfolio">Our Work: </a>';
     } else {
         $back_link = '';
     }
