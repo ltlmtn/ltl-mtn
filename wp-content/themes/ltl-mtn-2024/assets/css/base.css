@@ -483,3 +483,19 @@ footer a {
 .portfolio-item-link {
   margin: 2rem 0;
 }
+
+.portfolio-grid {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.portfolio-grid a {
+  color: black;
+}
+
+.portfolio-grid h2 {
+  font: bold 1rem var(--primary);
+  margin-top: 0.5rem;
+}
