@@ -33,12 +33,18 @@
 <main>
     <section class="homepage-portfolio archive-portfolio content-width">
     <?php
-    // WP_Query arguments
-    $args = array(
-        'post_type'      => 'portfolio',
-        'posts_per_page' => -1,
-        'orderby'        => 'menu_order',
-        'order'          => 'ASC'
+        $args = array(
+            'post_type'      => 'portfolio',
+            'posts_per_page' => -1,
+            'orderby'        => 'menu_order',
+            'order'          => 'ASC',
+            'meta_query'     => array(
+                array(
+                    'key'     => '_portfolio_feature_on_homepage',
+                    'value'   => '1',
+                    'compare' => '='
+                )
+        )
     );
 
     // The Query
@@ -80,11 +86,48 @@
         }
     } else {
         // No posts found
-        echo '<p>No portfolio items found.</p>';
     }
 
     // Restore original Post Data
     wp_reset_postdata();
+    ?>
+    </section>
+    <section class="portfolio-grid">
+        <?php
+            $args = array(
+                'post_type'      => 'portfolio',
+                'posts_per_page' => -1,
+                'orderby'        => 'menu_order',
+                'order'          => 'ASC',
+                'meta_query'     => array(
+                    array(
+                        'key'     => '_portfolio_feature_on_homepage',
+                        'value'   => '0',
+                        'compare' => '='
+                    )
+                )
+                    );
+
+        $query = new WP_Query($args);
+        if ($query->have_posts()) {
+            while ($query->have_posts()) {
+                $post_id = get_the_id();
+                $permalink = get_the_permalink($post_id);
+                $featured_image = get_the_post_thumbnail_url($post_id, 'medium');
+                $title = get_the_title($post_id);
+                echo '<div class="portfolio-grid-item">';
+                    echo '<a href="' . $permalink . '">';
+                        echo '<div class="portfolio-grid-image">';
+                            echo '<img src="'.$featured_image.'" />';
+                        echo '</div>';
+                        echo '<h2>'.$title.'</h2>';
+                    echo '</a>';
+                echo '</div>';
+            }
+        } else {
+            // No posts found
+        }
+        wp_reset_postdata();
     ?>
     </section>
 </main>
