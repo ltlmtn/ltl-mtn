@@ -2,7 +2,10 @@
     $theme = get_stylesheet_directory_uri();
     $home_url = get_home_url();
     $slogan = get_bloginfo('description');
-    $video_file = get_theme_mod('video_file');
+    $video_file_id = get_theme_mod('video_file');
+    if( $video_file_id ) {
+        $video_file = wp_get_attachment_url($video_file_id);
+    }
     $video_poster = get_theme_mod('video_poster');
 ?>
 
