@@ -111,7 +111,11 @@ h1.wp-block-heading {
   grid-area: nav;
 }
 
-.heading-areas .homepage-video video {
+.homepage-video {
+  width: calc( 100% - 2rem );
+}
+
+.homepage-video video {
   height: auto;
   width: 100%;
 }
