@@ -41,7 +41,7 @@
 <section class="homepage-section work" <?= $video_section_style; ?>>
     <div class="section-heading" id="work">
         <div class="heading-areas">
-            <div class="slogan">
+            <div class="section-title">
                 <span><h1><?php echo $title_section_1; ?></h1></span>
             </div>
             <?php get_template_part('snippets/homepage-anchors'); ?>
@@ -65,7 +65,7 @@
 <section class="homepage-section heading-section contact">
     <div class="section-heading scroll2me" id="contact">
         <div class="heading-areas">
-            <div class="slogan">
+            <div class="section-title">
                 <h2><?php echo $title_section_3; ?></h2>
             </div>
             <?php get_template_part('snippets/homepage-anchors'); ?>

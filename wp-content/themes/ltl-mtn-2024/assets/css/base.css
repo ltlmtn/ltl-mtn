@@ -210,8 +210,8 @@ h1.wp-block-heading {
   font-weight: bold;
 }
 
-.slogan h1,
-.slogan span {
+.section-title h1,
+.section-title h2 {
   font: normal 1rem/1.25 var(--primary);
   margin-bottom: 0.05rem;
 }
