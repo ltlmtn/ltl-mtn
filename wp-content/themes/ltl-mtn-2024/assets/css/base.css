@@ -106,7 +106,7 @@ h1.wp-block-heading {
   grid-area: slogan;
 }
 
-.heading-section .anchor-menu {
+.heading-section .menu-toggle {
   grid-area: nav;
 }
 
@@ -440,7 +440,8 @@ body.menu-active .menu-toggle {
   background-color: var(--mustard);
 }
 
-.page-header nav {
+.page-header nav,
+.section-heading nav {
   background-color: var(--mustard);
   border-radius: 3px 0 3px 3px;
   overflow: hidden;
@@ -451,27 +452,32 @@ body.menu-active .menu-toggle {
   translate: 0 -1rem;
 }
 
-.page-header nav a {
+.page-header nav a,
+.section-heading nav a {
   color: white;
   font-size: 1.25rem;
 }
 
-.page-header nav a:hover {
+.page-header nav a:hover,
+.section-heading nav a:hover {
   color: rgba(255, 255, 255, 0.75);
 }
 
-.page-header nav li:not(:last-of-type) {
+.page-header nav li:not(:last-of-type),
+.section-heading nav li:not(:last-of-type) {
   border-bottom: 1px solid black;
   margin-bottom: 0.5rem;
   padding-bottom: 0.5rem;
 }
 
-.page-header nav ul {
+.page-header nav ul,
+.section-heading nav ul {
   list-style-type: none;
   padding: 1rem;
 }
 
-body.menu-active .page-header nav {
+body.menu-active .page-header nav,
+body.menu-active .section-heading nav {
   max-height: 600px;
 }
 
