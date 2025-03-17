@@ -8,6 +8,11 @@ function asw_customize_register( $wp_customize ) {
         'priority'          => 1
     ) );
 
+    $wp_customize->add_section( 'homepage_sections' , array(
+        'title'             => 'Homepage Section Settings',
+        'priority'          => 2
+    ) );
+
     $wp_customize->add_section( 'seo' , array(
         'title'             => 'SEO',
         'priority'          => 3
@@ -35,6 +40,30 @@ function asw_customize_register( $wp_customize ) {
         'type' => 'text',
         'section' => 'video',
         'description' => 'Enter a hex code to match the containing element to the video color.'
+    ) );
+
+    $wp_customize->add_setting( 'title_section_1');
+    $wp_customize->add_control( 'title_section_1', array(
+        'label' => __( 'Section 1 Title' ),
+        'type' => 'text',
+        'section' => 'homepage_sections',
+        'description' => 'Enter the title for the first section.'
+    ) );
+
+    $wp_customize->add_setting( 'title_section_2');
+    $wp_customize->add_control( 'title_section_2', array(
+        'label' => __( 'Section 2 Title' ),
+        'type' => 'text',
+        'section' => 'homepage_sections',
+        'description' => 'Enter the title for the second section.'
+    ) );
+
+    $wp_customize->add_setting( 'title_section_3');
+    $wp_customize->add_control( 'title_section_3', array(
+        'label' => __( 'Section 3 Title' ),
+        'type' => 'text',
+        'section' => 'homepage_sections',
+        'description' => 'Enter the title for the third section.'
     ) );
     
 

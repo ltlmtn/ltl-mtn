@@ -13,6 +13,9 @@
     } else {
         $video_section_style = '';
     }
+    $title_section_1 = get_theme_mod('title_section_1', 'This is human business.');
+    $title_section_2 = get_theme_mod('title_section_2', 'We are human experts.');
+    $title_section_3 = get_theme_mod('title_section_3', 'Let\'s make something happen.');
 ?>
 
 <section class="homepage-section heading-section intro" id="top">
@@ -25,21 +28,21 @@
     <?php endif; ?>
 </section>
 
-<section class="homepage-section heading-section work" <?= $video_section_style; ?>>
+<div class="homepage-video">
+    <?php if ($video_file) : ?>
+        <video autoplay muted loop playsinline>
+            <source src="<?= $video_file; ?>" type="video/mp4">
+        </video>
+    <?php else : ?>
+        <img src="<?php echo esc_url($video_poster); ?>" alt="Video Poster">
+    <?php endif; ?>
+</div>
 
-    <div class="homepage-video">
-        <?php if ($video_file) : ?>
-            <video autoplay muted loop playsinline>
-                <source src="<?= $video_file; ?>" type="video/mp4">
-            </video>
-        <?php else : ?>
-            <img src="<?php echo esc_url($video_poster); ?>" alt="Video Poster">
-        <?php endif; ?>
-    </div>
+<section class="homepage-section work" <?= $video_section_style; ?>>
     <div class="section-heading" id="work">
         <div class="heading-areas">
             <div class="slogan">
-                <span><h1><?php echo $slogan; ?></h1></span>
+                <span><h1><?php echo $title_section_1; ?></h1></span>
             </div>
             <?php get_template_part('snippets/homepage-anchors'); ?>
         </div>
@@ -50,11 +53,8 @@
 <section class="homepage-section heading-section team">
     <div class="section-heading scroll2me" id="team">
         <div class="heading-areas">
-            <a class="logo" href="<?php echo $home_url; ?>">
-                <img src="<?php echo $theme; ?>/assets/images/logo-on-mustard.svg" alt="LTL Mountain Logo">
-            </a>
-            <div class="slogan">
-                <span><?php echo $slogan; ?></span>
+            <div class="section-title">
+                <h2><?php echo $title_section_2; ?></h2>
             </div>
             <?php get_template_part('snippets/homepage-anchors'); ?>
         </div>
@@ -65,11 +65,8 @@
 <section class="homepage-section heading-section contact">
     <div class="section-heading scroll2me" id="contact">
         <div class="heading-areas">
-            <a class="logo" href="<?php echo $home_url; ?>">
-                <img src="<?php echo $theme; ?>/assets/images/logo-on-black.svg" alt="LTL Mountain Logo">
-            </a>
             <div class="slogan">
-                <span><?php echo $slogan; ?></span>
+                <span><?php echo $title_section_3; ?></span>
             </div>
             <?php get_template_part('snippets/homepage-anchors'); ?>
         </div>
