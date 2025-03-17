@@ -54,18 +54,14 @@ header {
 }
 
 .heading-section.intro {
-  min-height: 70vh;
+  min-height: 50vh;
 }
 
 .heading-section {
   min-height: 110vh;
 }
 
-.section-heading {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
+.section-heading {margin: 0 auto;max-width: var(--desktop);width: calc( 100% - 2rem );}
 
 .main {
   margin: 2rem auto;
@@ -112,7 +108,11 @@ h1.wp-block-heading {
 }
 
 .homepage-video {
-  width: calc( 100% - 2rem );
+  margin: 0 auto;
+  position: relative;
+  width: 350px;
+  translate: 0 35px;
+  z-index: 2;
 }
 
 .homepage-video video {
@@ -212,7 +212,7 @@ h1.wp-block-heading {
 
 .section-title h1,
 .section-title h2 {
-  font: normal 1rem/1.25 var(--primary);
+  font: 500 1rem/1.25 var(--primary);
   margin-bottom: 0.05rem;
 }
 
