@@ -7,6 +7,12 @@
         $video_file = wp_get_attachment_url($video_file_id);
     }
     $video_poster = get_theme_mod('video_poster');
+    $video_highlight_color = get_theme_mod('video_highlight_color');
+    if( $video_highlight_color ) {
+        $video_section_style = 'style="background-color: '.$video_highlight_color.';"';
+    } else {
+        $video_section_style = '';
+    }
 ?>
 
 <section class="homepage-section heading-section intro" id="top">
@@ -19,7 +25,7 @@
     <?php endif; ?>
 </section>
 
-<section class="homepage-section heading-section work">
+<section class="homepage-section heading-section work" <?= $video_section_style; ?>>
     <div class="section-heading" id="work">
         <div class="heading-areas video">
             <div class="homepage-video">

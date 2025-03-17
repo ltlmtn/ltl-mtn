@@ -29,6 +29,15 @@ function asw_customize_register( $wp_customize ) {
         'description' => 'Upload the video poster for the homepage.'
     ) ) );
 
+    $wp_customize->add_setting( 'video_highlight_color');
+    $wp_customize->add_control( 'video_highlight_color', array(
+        'label' => __( 'Video Highlight Color' ),
+        'type' => 'text',
+        'section' => 'video',
+        'description' => 'Enter a hex code to match the containing element to the video color.'
+    ) );
+    
+
     // SEO Settings
 
     $wp_customize->add_setting( 'seo_title');
