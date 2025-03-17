@@ -50,7 +50,7 @@
     <?php get_template_part('snippets/homepage_work'); ?>
 </section>
 
-<section class="homepage-section heading-section team">
+<section class="homepage-section team">
     <div class="section-heading scroll2me" id="team">
         <div class="heading-areas">
             <div class="section-title">
@@ -62,7 +62,7 @@
     <?php get_template_part('snippets/homepage_team'); ?>
 </section>
 
-<section class="homepage-section heading-section contact">
+<section class="homepage-section contact">
     <div class="section-heading scroll2me" id="contact">
         <div class="heading-areas">
             <div class="section-title">
