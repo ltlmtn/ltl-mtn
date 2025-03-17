@@ -10,10 +10,7 @@
     </label>
     <nav class="anchor-menu">
         <?php wp_nav_menu( array( 
-            'theme_location' => 'homepage_anchors',
-            'container' => 'nav',
-            'container_class' => 'main-navigation',
-            'menu_class' => 'nav-menu',
+            'theme_location' => 'homepage_anchors'
         ) ); ?>
     </nav>
 </div>
