@@ -66,7 +66,7 @@
     <div class="section-heading scroll2me" id="contact">
         <div class="heading-areas">
             <div class="slogan">
-                <span><?php echo $title_section_3; ?></span>
+                <h2><?php echo $title_section_3; ?></h2>
             </div>
             <?php get_template_part('snippets/homepage-anchors'); ?>
         </div>
