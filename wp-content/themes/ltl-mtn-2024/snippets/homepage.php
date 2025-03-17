@@ -21,10 +21,7 @@
         <div class="heading-areas video">
             <div class="homepage-video">
                 <?php if ($video_file) : ?>
-                    <video controls poster="<?php echo esc_url($video_poster); ?>">
-                        <source src="<?php echo esc_url($video_file); ?>" type="video/mp4" mute playsinline loop />
-                        Your browser does not support the video tag.
-                    </video>
+                    <video src="<?php echo esc_url($video_file); ?>" type="video/mp4" controls mute playsinline loop poster="<?php echo esc_url($video_poster); ?>" />
                 <?php else : ?>
                     <img src="<?php echo esc_url($video_poster); ?>" alt="Video Poster">
                 <?php endif; ?>
