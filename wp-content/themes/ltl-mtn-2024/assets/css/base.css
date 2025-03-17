@@ -89,22 +89,39 @@ h1.wp-block-heading {
 .heading-section .heading-areas {
   align-items: end;
   display: grid;
+  grid-template-areas:
+    "logo logo"
+    "slogan nav";
   grid-template-columns: 66.66% auto;
   margin: 0 auto;
   max-width: var(--desktop);
 }
 
 .heading-section .logo {
+  grid-area: logo;
   padding: 3rem 1rem 0 1rem;
+}
+
+.heading-section .slogan {
+  grid-area: slogan;
+}
+
+.heading-section .anchor-menu {
+  grid-area: nav;
+}
+
+.heading-areas .homepage-video {
+  grid-area: logo;
+}
+
+.heading-areas .homepage-video video {
+  height: auto;
+  width: 100%;
 }
 
 .heading-section.work,
 .heading-section.work nav {
   background-color: var(--mustard);
-}
-
-.heading-section nav {
-  grid-column: 1 / span 2;
 }
 
 .heading-section.work nav a {
