@@ -61,7 +61,7 @@ header {
   min-height: 110vh;
 }
 
-.section-heading {margin: 0 auto;max-width: var(--desktop);width: calc( 100% - 2rem );}
+.section-heading {align-items: center;margin: 0 auto;max-width: var(--desktop);padding-top: 2rem;width: calc( 100% - 2rem );}
 
 .main {
   margin: 2rem auto;
@@ -90,8 +90,7 @@ h1.wp-block-heading {
     "slogan nav";
   grid-template-columns: 1fr auto;
   margin: 0 auto;
-  max-width: var(--desktop);
-  width: calc( 100% - 2rem );
+  width: 100%;
 }
 
 .heading-section .logo {
@@ -213,7 +212,7 @@ h1.wp-block-heading {
 .section-title h1,
 .section-title h2 {
   font: 500 1rem/1.25 var(--primary);
-  margin-bottom: 0.05rem;
+  margin: 0;
 }
 
 .portfolio-item {
@@ -440,8 +439,7 @@ body.menu-active .menu-toggle {
   background-color: var(--mustard);
 }
 
-.page-header nav,
-.section-heading nav {
+.page-header nav {
   background-color: var(--mustard);
   border-radius: 3px 0 3px 3px;
   overflow: hidden;
@@ -452,32 +450,27 @@ body.menu-active .menu-toggle {
   translate: 0 -1rem;
 }
 
-.page-header nav a,
-.section-heading nav a {
+.page-header nav a {
   color: white;
   font-size: 1.25rem;
 }
 
-.page-header nav a:hover,
-.section-heading nav a:hover {
+.page-header nav a:hover {
   color: rgba(255, 255, 255, 0.75);
 }
 
-.page-header nav li:not(:last-of-type),
-.section-heading nav li:not(:last-of-type) {
+.page-header nav li:not(:last-of-type) {
   border-bottom: 1px solid black;
   margin-bottom: 0.5rem;
   padding-bottom: 0.5rem;
 }
 
-.page-header nav ul,
-.section-heading nav ul {
+.page-header nav ul {
   list-style-type: none;
   padding: 1rem;
 }
 
-body.menu-active .page-header nav,
-body.menu-active .section-heading nav {
+body.menu-active .page-header nav {
   max-height: 600px;
 }
 
@@ -521,4 +514,51 @@ footer a {
 .portfolio-grid h2 {
   font: bold 1rem var(--primary);
   margin-top: 0.5rem;
+}
+
+.anchor-menu-container {
+  position: relative;
+}
+
+.anchor-menu-container input.anchor-menu-toggle-checkbox {
+  display: none;
+}
+
+.anchor-menu {
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+}
+
+.anchor-menu-container input:not(:checked) ~ label .anchor-menu-close,
+.anchor-menu-container input:checked ~ label .anchor-menu-open {
+  display: none;
+}
+
+.anchor-menu-container label {
+  background-color: rgba(255,255,255,0);
+  cursor: pointer;
+  display: block;
+  font-size: 1.5rem;
+  line-height: 0;
+  padding: 0.25rem;
+}
+
+.anchor-menu-container input:checked ~ label ~ .anchor-menu {
+  max-height: 999px;
+}
+
+.anchor-menu-container input:checked ~ label {
+  background-color: rgb(255,255,255,1);
+}
+
+.anchor-menu ul {
+  list-style: none;
+  padding: 1rem;
+}
+
+.anchor-menu a {
+  white-space: nowrap;
 }
