@@ -92,9 +92,10 @@ h1.wp-block-heading {
   grid-template-areas:
     "logo logo"
     "slogan nav";
-  grid-template-columns: 66.66% auto;
+  grid-template-columns: 1fr auto;
   margin: 0 auto;
   max-width: var(--desktop);
+  width: calc( 100% - 2rem );
 }
 
 .heading-section .logo {
@@ -108,10 +109,6 @@ h1.wp-block-heading {
 
 .heading-section .menu-toggle {
   grid-area: nav;
-}
-
-.heading-areas .homepage-video {
-  grid-area: logo;
 }
 
 .heading-areas .homepage-video video {
@@ -141,8 +138,7 @@ h1.wp-block-heading {
 }
 
 .heading-section.work .slogan {
-  background-color: white;
-  color: var(--mustard);
+  color: black;
 }
 
 .heading-section.team .slogan {

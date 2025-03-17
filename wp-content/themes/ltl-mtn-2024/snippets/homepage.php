@@ -26,17 +26,18 @@
 </section>
 
 <section class="homepage-section heading-section work" <?= $video_section_style; ?>>
+
+    <div class="homepage-video">
+        <?php if ($video_file) : ?>
+            <video autoplay muted loop playsinline>
+                <source src="<?= $video_file; ?>" type="video/mp4">
+            </video>
+        <?php else : ?>
+            <img src="<?php echo esc_url($video_poster); ?>" alt="Video Poster">
+        <?php endif; ?>
+    </div>
     <div class="section-heading" id="work">
-        <div class="heading-areas video">
-            <div class="homepage-video">
-                <?php if ($video_file) : ?>
-                    <video autoplay muted loop playsinline>
-                        <source src="<?= $video_file; ?>" type="video/mp4">
-                    </video>
-                <?php else : ?>
-                    <img src="<?php echo esc_url($video_poster); ?>" alt="Video Poster">
-                <?php endif; ?>
-            </div>
+        <div class="heading-areas">
             <div class="slogan">
                 <span><h1><?php echo $slogan; ?></h1></span>
             </div>
