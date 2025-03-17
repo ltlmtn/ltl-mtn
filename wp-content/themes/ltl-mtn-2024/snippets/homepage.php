@@ -24,7 +24,9 @@
         <div class="heading-areas video">
             <div class="homepage-video">
                 <?php if ($video_file) : ?>
-                    <video src="<?php echo esc_url($video_file); ?>" autoplay="true" mute playsinline loop poster="<?php echo esc_url($video_poster); ?>"></video>
+                    <video autoplay muted loop playsinline>
+                        <source src="<?= $video_file; ?>" type="video/mp4">
+                    </video>
                 <?php else : ?>
                     <img src="<?php echo esc_url($video_poster); ?>" alt="Video Poster">
                 <?php endif; ?>
