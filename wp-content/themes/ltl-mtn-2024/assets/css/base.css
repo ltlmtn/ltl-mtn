@@ -562,3 +562,9 @@ footer a {
 .anchor-menu a {
   white-space: nowrap;
 }
+
+.heading-areas {
+  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
