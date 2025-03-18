@@ -11,7 +11,7 @@
     if( $video_highlight_color ) {
         $video_section_style = 'style="background-color: '.$video_highlight_color.';"';
     } else {
-        $video_section_style = '';
+        $video_section_style = 'style="background-color: var(--mustard);"';
     }
     $title_section_1 = get_theme_mod('title_section_1', 'This is human business.');
     $title_section_2 = get_theme_mod('title_section_2', 'We are human experts.');

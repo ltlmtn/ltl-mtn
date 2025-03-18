@@ -118,7 +118,7 @@ h1.wp-block-heading {
   margin: 0 auto;
   position: relative;
   width: 350px;
-  translate: 0 35px;
+  translate: 0 39px;
   z-index: 2;
 }
 
@@ -635,20 +635,20 @@ main {
 @media screen and (min-width: 600px) {
   .homepage-video {
     width: 500px;
-    translate: 0 48px;
+    translate: 0 51px;
   }
 }
 
 @media screen and (min-width: 800px) {
   .homepage-video {
     width: 600px;
-    translate: 0 56px;
+    translate: 0 60px;
   }
 }
 
 @media screen and (min-width: 1080px) {
   .homepage-video {
     width: 800px;
-    translate: 0 72px;
+    translate: 0 78px;
   }
 }
