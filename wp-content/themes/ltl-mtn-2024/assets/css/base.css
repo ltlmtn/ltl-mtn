@@ -187,22 +187,6 @@ h1.wp-block-heading {
   padding: 1rem;
 }
 
-.scroll2me .logo img,
-.scroll2me nav,
-.scroll2me .slogan span {
-  opacity: 0;
-  transition: all 500ms linear;
-}
-
-.scroll2me.active .logo img,
-.scroll2me.active nav,
-.scroll2me.active .slogan span,
-.scroll2me:target .logo img,
-.scroll2me:target nav,
-.scroll2me:target .slogan span {
-  opacity: 1;
-}
-
 #work .anchor-menu .work-link a,
 #team .anchor-menu .team-link a,
 #contact .anchor-menu .contact-link a {
@@ -526,10 +510,12 @@ footer a {
 
 .anchor-menu {
   background-color: white;
+  border-radius: 3px 0 3px 3px;
   max-height: 0;
   overflow: hidden;
   position: absolute;
   right: 0;
+  z-index: 10;
 }
 
 .anchor-menu-container input:not(:checked) ~ label .anchor-menu-close,
@@ -539,6 +525,7 @@ footer a {
 
 .anchor-menu-container label {
   background-color: rgba(255,255,255,0);
+  border-radius: 3px 3px 0 0;
   cursor: pointer;
   display: block;
   font-size: 1.5rem;
@@ -560,6 +547,7 @@ footer a {
 }
 
 .anchor-menu a {
+  color: black;
   white-space: nowrap;
 }
 
@@ -567,4 +555,33 @@ footer a {
   align-items: center;
   display: grid;
   grid-template-columns: 1fr auto;
+}
+
+.homepage-section.team {
+  background-color: black;
+  color: white;
+}
+
+.homepage-section.team a {
+  color: var(--mustard);
+}
+
+.homepage-section.team .anchor-menu,
+.homepage-section.team .anchor-menu-container input:checked ~ label {
+  background-color: var(--mustard);
+}
+
+.homepage-section.team input:checked ~ .anchor-menu-toggle,
+.homepage-section.team .anchor-menu a {
+  color: black;
+}
+
+.homepage-section.contact .anchor-menu,
+.homepage-section.contact .anchor-menu-container input:checked ~ label {
+  background-color: black;
+}
+
+.homepage-section.contact input:checked ~ .anchor-menu-toggle,
+.homepage-section.contact .anchor-menu a {
+  color: white;
 }
