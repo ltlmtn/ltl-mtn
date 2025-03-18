@@ -628,6 +628,10 @@ body.scrolled .footer-logo {
   translate: 0 2px;
 }
 
+main {
+  min-height: 80vh;
+}
+
 @media screen and (min-width: 600px) {
   .homepage-video {
     width: 500px;
