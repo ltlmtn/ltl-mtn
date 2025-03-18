@@ -12,7 +12,7 @@
 if ( is_front_page() or ( is_home() ) ) {
   if( $home_title ) {
     echo '<meta property="og:title" content="' . $home_title . '" />';
-    echo '<title>' . $home_title . '</title>';
+    echo '<title>' . $home_title . ' | ' . get_bloginfo('description') . '</title>';
   } else {
     echo '<meta property="og:title" content="' . get_bloginfo('name') . ': ' . get_bloginfo('description') . '" />';
     echo '<title>' . get_bloginfo('name') . ' &bull; ' . get_bloginfo('description') . '</title>';
@@ -57,18 +57,23 @@ if ( is_front_page() or ( is_home() ) ) {
     if( is_front_page() or is_home() ) {
       if( $home_description ) {
         echo '<meta name="description" content="' . $home_description . '">';
+        echo '<meta property="og:description" content="' . $home_description . '" />';
       } else {
         echo '<meta name="description" content="' . get_bloginfo('description') . '">';
+        echo '<meta property="og:description" content="' .  get_bloginfo('description') . '" />';
       }
     } else {
       $summary = get_the_excerpt( $post->ID );
       if( $seo_description ) {
         echo '<meta name="description" content="' . $seo_description . '">';
+        echo '<meta property="og:description" content="' .  $seo_description . '" />';
       }
       elseif ( $summary !='' ) {
         echo '<meta name="description" content="' . $summary . '">';
+        echo '<meta property="og:description" content="' .  $summary . '" />';
       } else {
         echo '<meta name="description" content="' . get_bloginfo('description') . '">';
+        echo '<meta property="og:description" content="' .  get_bloginfo('description') . '" />';
       }
     }
   }
