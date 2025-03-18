@@ -5,8 +5,18 @@
 
 
 <footer>
+    <?php if( is_front_page() ) : ?>
+        <div class="footer-logo">
+            <?php
+                $logo_url = get_stylesheet_directory_uri() . '/assets/images/logo-on-white.svg';
+            ?>
+            <div class="content-width footer-logo-container">
+                <img src="<?= $logo_url; ?>" alt="Ltl Mtn Logo" />
+            </div>
+        </div>
+    <?php endif; ?>
     <div class="copyright content-width">
-        &copy; <?= date('Y'); ?> LTL MTN Inc.
+        &copy; <?= date('Y'); ?> Ltl Mtn Inc.
     </div>
 </footer>
 
