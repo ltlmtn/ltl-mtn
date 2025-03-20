@@ -25,6 +25,10 @@ a:visited {
   text-decoration: none;
 }
 
+p {
+  margin-bottom: 1rem;
+}
+
 .content-width {
   margin-left: auto;
   margin-right: auto;
