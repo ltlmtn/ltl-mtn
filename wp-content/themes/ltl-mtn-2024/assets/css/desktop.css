@@ -34,5 +34,30 @@
     .homepage-section.work {
         position: relative;
     }
+
+    .homepage-video {
+        align-items: flex-start;
+        display: flex;
+        justify-content: flex-end;
+        translate: 0 72px;
+        width: var(--desktop);
+    }
+    
+    .homepage-video video {
+        width: 800px;
+    }
+    
+    .homepage-logo {
+        display: block;
+        margin: 0 auto;
+        width: var(--desktop);
+    }
+    
+    .homepage-logo img {
+        height: 50px;
+        width: auto;
+        position: absolute;
+        top: -48px;
+    }
     
 }
