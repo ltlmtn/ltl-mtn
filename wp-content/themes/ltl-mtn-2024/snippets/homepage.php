@@ -28,10 +28,6 @@
     <?php endif; ?>
 </section>
 
-<div class="homepage-logo">
-    <img src="<?= $theme; ?>/assets/images/logo-on-white.svg" alt="Logo" />
-</div>
-
 <div class="homepage-video">
     <?php if ($video_file) : ?>
         <video autoplay muted loop playsinline>
@@ -43,6 +39,9 @@
 </div>
 
 <section class="homepage-section work" <?= $video_section_style; ?>>
+    <div class="homepage-logo">
+        <img src="<?= $theme; ?>/assets/images/logo-on-white.svg" alt="Logo" />
+    </div>
     <div class="section-heading" id="work">
         <div class="heading-areas">
             <div class="section-title">

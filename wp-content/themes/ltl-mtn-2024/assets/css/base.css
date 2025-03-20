@@ -618,6 +618,10 @@ main {
   min-height: 80vh;
 }
 
+.homepage-logo {
+  display: none;
+}
+
 @media screen and (min-width: 600px) {
   .homepage-video {
     width: 500px;
