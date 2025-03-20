@@ -2,14 +2,14 @@
 
     .portfolio-item {
         grid-template-areas: 
-            "quote quote quote quote quote" 
+            "quote quote quote null null" 
             "image image image content content";
         grid-template-columns: repeat(5, 1fr);
     }
 
     .portfolio-item:nth-of-type(even) {
         grid-template-areas: 
-            "quote quote quote quote quote" 
+            "null null quote quote quote" 
             "content content image image image";
     }
 

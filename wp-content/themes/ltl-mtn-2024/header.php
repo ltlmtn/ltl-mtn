@@ -15,7 +15,7 @@
   }
 ?>
 
-<body id="body" class="ltlmtn <?php if(is_front_page()) { echo 'homepage '; } elseif(is_home()) { echo 'posts-index '; } else { echo get_post_type(); echo ' '; } ?> <?= $loggedin; ?>">
+<body id="body" class="ltlmtn <?php if(is_front_page()) { echo 'homepage '; } elseif(is_home()) { echo 'posts-index '; } else { echo get_post_type() . ' '; } ?> <?= $loggedin; ?>">
 
 
 <!-- END OF HEADER.PHP -->

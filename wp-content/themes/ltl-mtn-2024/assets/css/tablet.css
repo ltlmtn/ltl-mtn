@@ -62,13 +62,12 @@
 
     .portfolio-item {
         grid-gap: 2rem;
-        grid-template-areas: "quote quote" "image content";
+        grid-template-areas: "quote null" "image content";
         grid-template-columns: repeat(2, 1fr);
     }
     
     .portfolio-item .quote {
         grid-area: quote;
-        max-width: 50%
     }
     
     .portfolio-item .portfolio-image {
@@ -80,7 +79,7 @@
     }
 
     .portfolio-item:nth-of-type(even) {
-        grid-template-areas: "quote quote" "content image";
+        grid-template-areas: "null quote" "content image";
     }
 
     .bios-grid {
