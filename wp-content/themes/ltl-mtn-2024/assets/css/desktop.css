@@ -50,7 +50,8 @@
     .homepage-logo {
         display: block;
         margin: 0 auto;
-        width: var(--desktop);
+        max-width: var(--desktop);
+        width: calc( 100% - 2rem );
     }
     
     .homepage-logo img {
