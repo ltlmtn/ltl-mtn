@@ -491,12 +491,6 @@ footer a {
   color: var(--mustard);
 }
 
-.homepage footer {
-  background-color: white;
-  color: var(--mustard);
-  padding-bottom: 50px;
-}
-
 .copyright {
   align-items: center;
   display: flex;
@@ -612,18 +606,6 @@ footer a {
 
 .footer-logo {
   border-bottom: 3px solid var(--mustard);
-  bottom: -55px;
-  position: fixed;
-  width: 100%;
-  transition: all 1s ease 0s;
-}
-
-body.scrolled .footer-logo {
-  bottom: 0;
-}
-
-.footer-logo-container {
-  height: 50px;
 }
 
 .footer-logo-container img {
