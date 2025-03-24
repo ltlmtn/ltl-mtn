@@ -299,8 +299,7 @@ h2 {
 .bio-meta {
   background-color: var(--mustard);
   border-radius: 0 0 3px 3px;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
   gap: 0.5rem;
   font-weight: 500;
   padding: 0.5rem;
