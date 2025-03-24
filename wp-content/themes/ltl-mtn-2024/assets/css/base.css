@@ -639,6 +639,8 @@ main {
 }
 
 .portfolio-more {
+  display: flex;
+  justify-content: flex-end;
   padding: 2rem 0;
 }
 
