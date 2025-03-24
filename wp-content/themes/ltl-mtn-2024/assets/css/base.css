@@ -241,6 +241,16 @@ a.button:hover {
   background-color: black;
 }
 
+a.button.black {
+  background-color: black;
+  color: white;
+}
+
+a.button:hover {
+  background-color: black;
+  color: var(--mustard);
+}
+
 h2 {
   font: normal 2rem var(--secondary);
   margin-bottom: 1rem;
@@ -626,6 +636,10 @@ main {
 
 .homepage-logo {
   display: none;
+}
+
+.portfolio-more {
+  padding: 2rem 0;
 }
 
 @media screen and (min-width: 600px) {

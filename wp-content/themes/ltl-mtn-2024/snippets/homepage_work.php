@@ -60,4 +60,9 @@ if ($query->have_posts()) {
 // Restore original Post Data
 wp_reset_postdata();
 ?>
+
+<div class="portfolio-more">
+    <a href="/portfolio" class="button black">More Work &rarr;</a>
+</div>
+
 </section>

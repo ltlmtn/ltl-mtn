@@ -92,7 +92,7 @@
     wp_reset_postdata();
     ?>
     </section>
-    <section class="portfolio-grid content-width">
+    <section class="portfolio-grid content-width" id="archive">
         <?php
             $args = array(
                 'post_type'      => 'portfolio',
