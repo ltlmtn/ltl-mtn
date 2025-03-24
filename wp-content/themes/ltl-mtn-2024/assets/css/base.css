@@ -281,19 +281,20 @@ h2 {
   border-radius: 3px 3px 0 0;
   height: 0;
   filter: grayscale(1);
-  padding-top: 100%;
+  padding-top: 150%;
 }
 
 .bios-grid {
   display: grid;
   grid-gap: 2rem;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
 }
 
 .bio-meta {
   background-color: var(--mustard);
   border-radius: 0 0 3px 3px;
   display: flex;
+  flex-wrap: wrap;
   gap: 0.5rem;
   font-weight: 500;
   padding: 0.5rem;
