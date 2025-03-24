@@ -15,7 +15,7 @@
 
     .bios-grid {
         grid-gap: 4rem;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 
     .homepage-team {

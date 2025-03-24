@@ -275,6 +275,12 @@ h2 {
   padding: 2rem 0;
 }
 
+.bio {
+  background-color: var(--mustard);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
 .bio-image {
   background-position: top center;
   background-size: cover;
