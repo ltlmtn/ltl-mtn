@@ -64,6 +64,7 @@
         grid-gap: 2rem;
         grid-template-areas: "quote null" "image content";
         grid-template-columns: repeat(2, 1fr);
+        margin-bottom: 4rem;
     }
     
     .portfolio-item .quote {

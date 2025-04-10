@@ -5,6 +5,7 @@
             "quote quote quote null null" 
             "image image image content content";
         grid-template-columns: repeat(5, 1fr);
+        margin-bottom: 6rem;
     }
 
     .portfolio-item:nth-of-type(even) {
