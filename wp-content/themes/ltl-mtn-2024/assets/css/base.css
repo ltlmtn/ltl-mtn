@@ -58,7 +58,9 @@ header {
 }
 
 .heading-section.intro {
-  min-height: 25vh;
+  height: 0;
+  min-height: 70vh;
+  position: relative
 }
 
 .heading-section {
@@ -76,7 +78,7 @@ header {
 }
 
 .main {
-  margin: 2rem auto;
+  margin: 0 auto;
   max-width: var(--desktop);
   width: calc(100% - 2rem);
 }
@@ -87,6 +89,9 @@ body:not(.homepage) .main {
 
 .intro-container {
   max-width: 740px;
+  padding-top: 2rem;
+  position: relative;
+  z-index: 10;
 }
 
 h1.wp-block-heading {
@@ -119,10 +124,11 @@ h1.wp-block-heading {
 }
 
 .homepage-video {
-  margin: 0 auto;
-  position: relative;
+  left: 50%;
+  position: absolute;
   width: 350px;
-  translate: 0 39px;
+  bottom: 0;
+  translate: -50% 39px;
   z-index: 2;
 }
 
@@ -647,20 +653,184 @@ main {
 @media screen and (min-width: 600px) {
   .homepage-video {
     width: 500px;
-    translate: 0 51px;
+    bottom: 0;
+    translate: -50% 52px;
   }
 }
 
 @media screen and (min-width: 800px) {
+
   .homepage-video {
     width: 600px;
-    translate: 0 60px;
+    bottom: 0;
+    translate: -50% 60px;
   }
+  .heading-section .heading-areas {
+      grid-column-gap: 1rem;
+      grid-template-columns: auto auto 1fr;
+  }
+
+  .heading-section nav {
+      grid-column: auto;
+  }
+  
+  .heading-section .section-heading {
+      margin: 0 auto;
+  }
+  
+  .heading-section nav ul {
+      justify-content: flex-end;
+      padding: 0;
+  }
+  
+  .heading-section .logo {
+      padding: 4rem 0 0 0;
+  }
+  
+  section.heading-section.work nav a {
+      color: black;
+  }
+  
+  .heading-section .heading-areas {
+      width: calc( 100% - 2rem );
+  }
+  
+  .heading-section.work .section-heading,
+  .heading-section.work nav {
+      background-color: white;
+  }
+
+  .heading-section.work .section-heading {
+      border-bottom: 3px solid var(--mustard);
+  }
+  
+  .heading-section.team .section-heading,
+  .heading-section.team nav {
+      background-color: var(--mustard);
+  }
+  
+  .heading-section.team .section-heading {
+      border-bottom: 3px solid black;
+  }
+  
+  .heading-section.contact .section-heading,
+  .heading-section.contact nav {
+      background-color: black;
+  }
+  
+  .heading-section.contact .section-heading {
+      border-bottom: 3px solid white;
+  }
+
+  .homepage-portfolio {
+      padding: 2rem 0;
+  }
+
+  .portfolio-item {
+      grid-gap: 2rem;
+      grid-template-areas: "quote null" "image content";
+      grid-template-columns: repeat(2, 1fr);
+      margin-bottom: 4rem;
+  }
+  
+  .portfolio-item .quote {
+      grid-area: quote;
+  }
+  
+  .portfolio-item .portfolio-image {
+      grid-area: image;
+  }
+  
+  .portfolio-item .portfolio-content {
+      grid-area: content;
+  }
+
+  .portfolio-item:nth-of-type(even) {
+      grid-template-areas: "null quote" "content image";
+  }
+
+  .bios-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .contact-form .columns_1-1 {
+      display: grid;
+      grid-gap: 1rem;
+      grid-template-columns: 1fr 1fr;
+  }
+
 }
 
 @media screen and (min-width: 1080px) {
   .homepage-video {
     width: 800px;
-    translate: 0 78px;
+    translate: -50% 79px;
   }
+}
+
+@media screen and (min-width: 1120px) {
+
+  .portfolio-item {
+      grid-template-areas: 
+          "quote quote quote null null" 
+          "image image image content content";
+      grid-template-columns: repeat(5, 1fr);
+      margin-bottom: 6rem;
+  }
+
+  .portfolio-item:nth-of-type(even) {
+      grid-template-areas: 
+          "null null quote quote quote" 
+          "content content image image image";
+  }
+
+  .bios-grid {
+      grid-gap: 4rem;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .homepage-team {
+      padding: 4rem 0;
+  }
+
+  .header-area-1 {
+      padding: 2rem 0 0 0;
+  }
+
+  .page-header nav {
+      right: calc( (100vw - var(--desktop)) / 2 );
+      translate: 0.5rem -1rem;
+  }
+
+  .homepage-section.work {
+      position: relative;
+  }
+
+  .homepage-video {
+      align-items: flex-start;
+      display: flex;
+      justify-content: flex-end;
+      bottom: 0;
+      translate: -50% 72px;
+      width: var(--desktop);
+  }
+  
+  .homepage-video video {
+      width: 800px;
+  }
+  
+  .homepage-logo {
+      display: block;
+      margin: 0 auto;
+      max-width: var(--desktop);
+      width: calc( 100% - 2rem );
+  }
+  
+  .homepage-logo img {
+      height: 50px;
+      width: auto;
+      position: absolute;
+      top: -48px;
+  }
+  
 }

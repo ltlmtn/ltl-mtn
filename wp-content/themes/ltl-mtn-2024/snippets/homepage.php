@@ -26,17 +26,16 @@
             </div>
         </div>
     <?php endif; ?>
+    <div class="homepage-video">
+        <?php if ($video_file) : ?>
+            <video autoplay muted loop playsinline>
+                <source src="<?= $video_file; ?>" type="video/mp4">
+            </video>
+        <?php else : ?>
+            <img src="<?php echo esc_url($video_poster); ?>" alt="Video Poster">
+        <?php endif; ?>
+    </div>
 </section>
-
-<div class="homepage-video">
-    <?php if ($video_file) : ?>
-        <video autoplay muted loop playsinline>
-            <source src="<?= $video_file; ?>" type="video/mp4">
-        </video>
-    <?php else : ?>
-        <img src="<?php echo esc_url($video_poster); ?>" alt="Video Poster">
-    <?php endif; ?>
-</div>
 
 <section class="homepage-section work" <?= $video_section_style; ?>>
     <div class="homepage-logo">
