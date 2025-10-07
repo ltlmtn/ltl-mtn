@@ -71,7 +71,7 @@ function mytheme_setup() {
 		),
 		array(
 			'name' => __( 'Mustard' ),
-			'slug' => 'copper',
+			'slug' => 'mustard',
 			'color' => '#DAB108',
 		)
 	) );
