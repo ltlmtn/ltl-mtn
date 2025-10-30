@@ -469,6 +469,7 @@ body.menu-active .menu-toggle {
   right: 1rem;
   transition: all 500ms linear 0s;
   translate: 0 -1rem;
+  z-index: 2;
 }
 
 .page-header nav a {
@@ -641,6 +642,8 @@ footer a {
 
 main {
   min-height: 80vh;
+  position: relative;
+  z-index: 0;
 }
 
 .homepage-logo {
