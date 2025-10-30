@@ -9,6 +9,8 @@ body {
   font-weight: 400;
   line-height: 1.5;
   color: black;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 a {
@@ -832,6 +834,10 @@ main {
       width: auto;
       position: absolute;
       top: -48px;
+  }
+
+  .page-header nav {
+    translate: -1rem -1rem;
   }
   
 }

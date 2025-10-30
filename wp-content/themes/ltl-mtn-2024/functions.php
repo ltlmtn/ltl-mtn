@@ -73,6 +73,11 @@ function mytheme_setup() {
 			'name' => __( 'Mustard' ),
 			'slug' => 'mustard',
 			'color' => '#DAB108',
+		),
+		array(
+			'name' => __( 'Mustard' ),
+			'slug' => 'mustard',
+			'color' => '#DAB108',
 		)
 	) );
 	add_theme_support( 'disable-custom-colors' );
