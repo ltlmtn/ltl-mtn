@@ -837,7 +837,7 @@ main {
   }
 
   .page-header nav {
-    translate: -1rem -1rem;
+    translate: 0 -1rem;
   }
   
 }
