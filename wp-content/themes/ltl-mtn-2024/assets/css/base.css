@@ -406,6 +406,10 @@ h2 {
   max-width: 800px;
 }
 
+.contact-form > div {
+  margin-bottom: 1rem;
+}
+
 .ltlmtn .wpcf7 form .wpcf7-response-output,
 .ltlmtn .wpcf7 form.sent .wpcf7-response-output {
   border-color: black;
