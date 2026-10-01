@@ -349,6 +349,11 @@ h2 {
   padding: 0;
 }
 
+.questionnaire-form label {
+  border-radius: 3px 3px 0 0;
+  padding: 0.25rem 0.5rem;
+}
+
 .contact-form label .label-text {
   color: white;
   font-size: 0.85rem;
@@ -394,6 +399,11 @@ h2 {
 .contact-form input[type=submit]:hover {
   background-color: var(--mustard);
   border-color: var(--mustard);
+}
+
+.questionnaire-form {
+  margin: 0 auto;
+  max-width: 800px;
 }
 
 .ltlmtn .wpcf7 form .wpcf7-response-output,
