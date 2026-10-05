@@ -1,0 +1,19 @@
+.cf7ms-marker[hidden], .cf7ms-progress-slot[hidden] { display: none; }
+.cf7ms-step { border: 0; margin: 0; padding: 0; min-width: 0; }
+.cf7ms-step[hidden] { display: none; }
+.cf7ms-legend { font-size: 1.25em; font-weight: 600; margin-bottom: 1em; padding: 0; }
+.cf7ms-progress { list-style: none; counter-reset: cf7ms; display: flex; gap: .5em; margin: 0 0 1.5em; padding: 0; flex-wrap: wrap; }
+.cf7ms-progress li { counter-increment: cf7ms; flex: 1 1 0; min-width: 6em; padding: .5em; border-bottom: 4px solid #ccd0d4; color: #646970; font-size: .9em; }
+.cf7ms-progress li::before { content: counter(cf7ms) ". "; }
+.cf7ms-progress li.is-done { border-color: #2271b1; }
+.cf7ms-progress li.is-current { border-color: #2271b1; color: #1d2327; font-weight: 600; }
+.cf7ms-nav { display: flex; gap: .75em; margin: 1em 0; }
+.cf7ms-step-error { color: #b32d2e; margin-top: .5em; }
+.cf7ms-step-error:empty { display: none; }
+.cf7ms-invalid { outline: 2px solid #b32d2e; }
+.cf7ms-save { margin: 1em 0; }
+.cf7ms-save-email { display: block; margin-bottom: .5em; }
+.cf7ms-save-email span { display: block; font-size: .9em; }
+.cf7ms-link { width: 100%; max-width: 32em; margin-right: .5em; }
+.cf7ms-notice { background: #f0f6fc; border-left: 4px solid #2271b1; padding: .75em 1em; margin-bottom: 1em; }
+.cf7ms-notice:empty { display: none; }

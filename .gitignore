@@ -12,3 +12,4 @@ wp-content/mu-plugins/
 # Add plugins for development
 !wp-content/plugins/contact-form-7
 !wp-content/plugins/contact-form-cfdb7
+!wp-content/plugins/cf7-multistep-save
