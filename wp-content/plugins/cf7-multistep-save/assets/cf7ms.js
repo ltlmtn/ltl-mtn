@@ -41,33 +41,47 @@
 	}
 
 	CF7MS.prototype.buildSteps = function () {
-		var form = this.form, current = null, groups = [];
-		Array.prototype.slice.call( form.children ).forEach( function ( child ) {
-			var marker = child.matches( '.cf7ms-marker' ) ? child : child.querySelector( '.cf7ms-marker' );
-			if ( marker ) {
-				current = { title: marker.getAttribute( 'data-title' ) || '', nodes: [ child ] };
-				groups.push( current );
-			} else if ( child.matches( EXCLUDE ) || child.matches( '.cf7ms-progress-slot' ) ) {
-				return;
-			} else if ( child.querySelector( '.cf7ms-progress-slot' ) ) {
-				return;
-			} else {
-				if ( ! current ) {
-					current = { title: '', nodes: [] };
-					groups.push( current );
-				}
-				current.nodes.push( child );
-			}
-		} );
+		var form = this.form, self = this;
+		var markers = Array.prototype.slice.call( form.querySelectorAll( '.cf7ms-marker' ) );
+		if ( ! markers.length ) { return; }
 
+		// Lowest ancestor containing every marker; its children are the units we split on.
+		var root = markers[ 0 ].parentElement;
+		while ( root !== form && ! markers.every( function ( m ) { return root.contains( m ); } ) ) {
+			root = root.parentElement;
+		}
+		var unitOf = function ( m ) {
+			while ( m.parentElement !== root ) { m = m.parentElement; }
+			return m;
+		};
+
+		var groups = [], current = { title: '', nodes: [] };
+		Array.prototype.slice.call( root.children ).forEach( function ( child ) {
+			if ( child.matches( EXCLUDE ) ) { return; }
+			var m = child.matches( '.cf7ms-marker' ) ? child : child.querySelector( '.cf7ms-marker' );
+			if ( m && unitOf( m ) === child ) {
+				// Content before the first marker joins the first step.
+				if ( groups.length || ! current.nodes.length ) { current = { title: '', nodes: [] }; groups.push( current ); }
+				else { groups.push( current ); }
+				current.title = m.getAttribute( 'data-title' ) || '';
+			}
+			current.nodes.push( child );
+		} );
 		if ( ! groups.length ) { return; }
-		var self = this;
+
+		// Always-visible pieces live outside the steps.
+		var slot = form.querySelector( '.cf7ms-progress-slot' );
+		if ( slot ) { slot.remove(); }
+		if ( this.saveBox ) { this.saveBox.remove(); }
+
 		groups.forEach( function ( g, i ) {
 			var fs = el( 'fieldset', 'cf7ms-step' );
 			g.nodes[ 0 ].parentNode.insertBefore( fs, g.nodes[ 0 ] );
 			if ( g.title ) { fs.appendChild( el( 'legend', 'cf7ms-legend', g.title ) ); }
 			g.nodes.forEach( function ( n ) { fs.appendChild( n ); } );
-			fs.appendChild( el( 'div', 'cf7ms-step-error' ) ).setAttribute( 'role', 'alert' );
+			var err = el( 'div', 'cf7ms-step-error' );
+			err.setAttribute( 'role', 'alert' );
+			fs.appendChild( err );
 			var nav = el( 'div', 'cf7ms-nav' );
 			if ( i > 0 ) {
 				var b = el( 'button', 'cf7ms-prev', i18n.prev || 'Back' );
@@ -89,9 +103,9 @@
 		this.steps.forEach( function ( s, i ) {
 			this.progress.appendChild( el( 'li', '', s.title || fmt( i18n.stepOf || '%1$s/%2$s', i + 1, this.steps.length ) ) );
 		}, this );
-		var slot = form.querySelector( '.cf7ms-progress-slot' );
-		if ( slot ) { slot.parentNode.replaceChild( this.progress, slot ); }
-		else { this.steps[ 0 ].el.parentNode.insertBefore( this.progress, this.steps[ 0 ].el ); }
+		var first = this.steps[ 0 ].el, last = this.steps[ this.steps.length - 1 ].el;
+		first.parentNode.insertBefore( this.progress, first );
+		if ( this.saveBox ) { last.parentNode.insertBefore( this.saveBox, last.nextSibling ); }
 		form.classList.add( 'cf7ms-active' );
 		this.show( 0, true );
 	};

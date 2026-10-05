@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: CF7 Multi-Step & Save Progress
- * Description: Extends Contact Form 7 with multi-step form tags and account-free save/resume of unfinished forms via a unique link.
+ * Description: Turns long Contact Form 7 forms into steps with [step "Title"] and lets visitors save progress and resume later from a unique link, with no account needed. Add [save_session] to show the save button. See readme.txt.
  * Version: 1.0.0
  * Requires at least: 6.0
  * Requires PHP: 7.4

@@ -9,8 +9,8 @@ class CF7MS_Tags {
 
 	public static function register() {
 		wpcf7_add_form_tag( 'step', array( __CLASS__, 'step' ), array( 'display-block' => true ) );
-		wpcf7_add_form_tag( 'step-nav', array( __CLASS__, 'nav' ), array( 'display-block' => true ) );
-		wpcf7_add_form_tag( 'save-session', array( __CLASS__, 'save_button' ), array( 'display-block' => true ) );
+		wpcf7_add_form_tag( 'step_nav', array( __CLASS__, 'nav' ), array( 'display-block' => true ) );
+		wpcf7_add_form_tag( 'save_session', array( __CLASS__, 'save_button' ), array( 'display-block' => true ) );
 	}
 
 	private static function enqueue() {
@@ -37,7 +37,7 @@ class CF7MS_Tags {
 
 	public static function step( $tag ) {
 		self::enqueue();
-		$title = ! empty( $tag->values ) ? $tag->values[0] : '';
+		$title = ! empty( $tag->values ) ? wp_specialchars_decode( $tag->values[0], ENT_QUOTES ) : '';
 		return sprintf( '<div class="cf7ms-marker" data-title="%s" hidden></div>', esc_attr( $title ) );
 	}
 
@@ -64,15 +64,15 @@ class CF7MS_Tags {
 		$gen = WPCF7_TagGenerator::get_instance();
 		$cb  = array( __CLASS__, 'generator_panel' );
 		$gen->add( 'step', __( 'step', 'cf7ms' ), $cb, array( 'version' => '1' ) );
-		$gen->add( 'step-nav', __( 'step progress', 'cf7ms' ), $cb, array( 'version' => '1' ) );
-		$gen->add( 'save-session', __( 'save session', 'cf7ms' ), $cb, array( 'version' => '1' ) );
+		$gen->add( 'step_nav', __( 'step progress', 'cf7ms' ), $cb, array( 'version' => '1' ) );
+		$gen->add( 'save_session', __( 'save session', 'cf7ms' ), $cb, array( 'version' => '1' ) );
 	}
 
 	public static function generator_panel( $contact_form, $options = '' ) {
 		$help = array(
 			'step'         => __( 'Starts a new step. Put on its own line: [step "Your details"]', 'cf7ms' ),
-			'step-nav'     => __( 'Optional: place the progress indicator here: [step-nav]. Otherwise it is added at the top.', 'cf7ms' ),
-			'save-session' => __( 'Button to save progress: [save-session "Save & get link"]. Options: email (ask for email to send the link), autosave.', 'cf7ms' ),
+			'step_nav'     => __( 'Optional: the progress indicator is always shown above the steps; this tag is accepted for convenience.', 'cf7ms' ),
+			'save_session' => __( 'Button to save progress: [save_session "Save & get link"]. Options: email (ask for email to send the link), autosave.', 'cf7ms' ),
 		);
 		$id = is_array( $options ) && isset( $options['id'] ) ? $options['id'] : '';
 		echo '<div class="control-box"><p>' . esc_html( $help[ $id ] ?? implode( ' ', $help ) ) . '</p></div>';
