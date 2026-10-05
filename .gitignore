@@ -9,3 +9,6 @@ wp-content/plugins/
 wp-content/mu-plugins/
 !.gitignore
 *.DS_Store
+# Add plugins for development
+!wp-content/plugins/contact-form-7
+!wp-content/plugins/contact-form-cfdb7
