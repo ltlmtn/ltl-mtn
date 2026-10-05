@@ -32,6 +32,17 @@ class CF7MS_Rest {
 		return true;
 	}
 
+	/** Counts an event under an arbitrary id (e.g. recipient hash); false once the limit is reached. */
+	private static function throttle_id( $bucket, $id, $limit, $ttl ) {
+		$k = 'cf7ms_' . $bucket . '_' . md5( $id );
+		$n = (int) get_transient( $k );
+		if ( $n >= $limit ) {
+			return false;
+		}
+		set_transient( $k, $n + 1, $ttl );
+		return true;
+	}
+
 	private static function field_names( $form_id ) {
 		$form = function_exists( 'wpcf7_contact_form' ) ? wpcf7_contact_form( $form_id ) : null;
 		if ( ! $form ) {
@@ -85,7 +96,12 @@ class CF7MS_Rest {
 		$link = add_query_arg( 'cf7s', $key, remove_query_arg( 'cf7s', $page ) );
 
 		$emailed = false;
-		if ( $email && is_email( $email ) && self::throttle( 'mail', 5 ) ) {
+		if (
+			$email && is_email( $email )
+			&& self::throttle( 'mail', 5 )
+			&& self::throttle_id( 'mail_to', strtolower( $email ), 3, DAY_IN_SECONDS )
+			&& self::throttle_id( 'mail_all', 'site', (int) apply_filters( 'cf7ms_site_mail_limit_per_hour', 30 ), HOUR_IN_SECONDS )
+		) {
 			$emailed = wp_mail(
 				$email,
 				sprintf( /* translators: %s: site name */ __( 'Continue your form on %s', 'cf7ms' ), wp_specialchars_decode( get_bloginfo( 'name' ), ENT_QUOTES ) ),
