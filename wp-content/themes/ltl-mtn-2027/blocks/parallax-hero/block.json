@@ -1,0 +1,34 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ltl-mtn/parallax-hero",
+  "version": "1.0.0",
+  "title": "Parallax Hero",
+  "category": "theme",
+  "icon": "images-alt2",
+  "description": "Full-width carousel with 2.5D depth map parallax effect.",
+  "keywords": [
+    "parallax",
+    "hero",
+    "carousel",
+    "3d",
+    "depth map",
+    "slider"
+  ],
+  "supports": {
+    "align": ["full"],
+    "default": "full",
+    "html": false
+  },
+  "attributes": {
+    "slides": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "editorScript": "file:./editor.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css",
+  "viewScript": "file:./view.js",
+  "render": "file:./render.php"
+}

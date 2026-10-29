@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap');
+
+:root {
+    --primary: 'Arimo', sans-serif;
+    --secondary: 'Old Standard TT', serif;
+    --mustard: #DAB108;
+    --goldenrod: #EDD883;
+    --silver: #EDEDED;
+    --desktop: 1200px;
+    --slim: 800px;
+}
+
+body {
+    font-family: var(--primary);
+}
+
+.has-white-color { color: white; }
+.has-white-background-color { background-color: white; }
+.has-black-color { color: black; }
+.has-black-background-color { background-color: black; }
+.has-mustard-color { color: var(--mustard); }
+.has-mustard-background-color { background-color: var(--mustard); }
+.has-goldenrod-color { color: var(--goldenrod); }
+.has-goldenrod-background-color { background-color: var(--goldenrod); }
+.has-silver-color { color: var(--silver); }
+.has-silver-background-color { background-color: var(--silver); }
+
+html :where(.wp-block) {
+    max-width: 100%;
+}
