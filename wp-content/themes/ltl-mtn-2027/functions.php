@@ -136,10 +136,38 @@ get_template_part('customizations/customizations');
 get_template_part('customizations/portfolio-post-type');
 
 /**
- * Register Parallax Hero Custom Block
+ * Register Parallax Hero Custom Blocks
  */
 function ltl_mtn_register_parallax_hero_block() {
 	register_block_type( get_template_directory() . '/blocks/parallax-hero' );
+
+	register_block_type( 'ltl-mtn/parallax-hero-slide', array(
+		'apiVersion'      => 3,
+		'title'           => __( 'Parallax Hero Slide', 'ltl-mtn' ),
+		'category'        => 'theme',
+		'parent'          => array( 'ltl-mtn/parallax-hero' ),
+		'attributes'      => array(
+			'image'    => array(
+				'type'    => 'object',
+				'default' => null,
+			),
+			'depthMap' => array(
+				'type'    => 'object',
+				'default' => null,
+			),
+			'alt'      => array(
+				'type'    => 'string',
+				'default' => '',
+			),
+		),
+		'supports'        => array(
+			'html'     => false,
+			'reusable' => false,
+		),
+		'render_callback' => function( $attributes, $content ) {
+			return $content;
+		},
+	) );
 }
 add_action( 'init', 'ltl_mtn_register_parallax_hero_block' );
 

@@ -131,6 +131,8 @@ a:visited {
 header.page-header {
     background-color: black;
     color: white;
+    position: relative;
+    z-index: 10;
 }
 
 header.page-header .header-areas {

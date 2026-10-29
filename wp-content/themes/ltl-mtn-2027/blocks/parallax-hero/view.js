@@ -343,6 +343,7 @@
 		}
 
 		this.dots = container.querySelectorAll('.parallax-hero-dot');
+		this.contentPanels = container.querySelectorAll('.parallax-hero-slide-content');
 
 		this.bindEvents();
 		this.setupIntersectionObserver();
@@ -454,6 +455,12 @@
 				this.dots[i].classList.toggle('is-active', isCurrent);
 				this.dots[i].setAttribute('aria-selected', isCurrent ? 'true' : 'false');
 			}
+		}
+
+		// Advance inner block content panels with the active slide
+		for (var c = 0; c < this.contentPanels.length; c++) {
+			var isCurrentContent = (c === newIndex);
+			this.contentPanels[c].classList.toggle('is-active', isCurrentContent);
 		}
 
 		var activeSlide = this.slides[this.currentIndex];

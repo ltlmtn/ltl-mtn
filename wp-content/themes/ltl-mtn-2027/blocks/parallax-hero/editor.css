@@ -340,3 +340,59 @@
 	line-height: 1.5;
 	margin-top: 12px;
 }
+
+/* ==========================================================================
+   Inner Blocks Field (Background: #EDEDED to match frontend var(--silver))
+   ========================================================================== */
+.parallax-hero-slide-inner-field {
+	padding: 0 16px 20px 16px;
+}
+
+.parallax-hero-inner-label {
+	font-size: 13px;
+	font-weight: 600;
+	color: #ddd;
+	margin-bottom: 8px;
+}
+
+.parallax-hero-slide-inner-box {
+	background-color: #EDEDED !important;
+	border: 1px solid #d4d4d4;
+	border-radius: 6px;
+	padding: 24px;
+	box-sizing: border-box;
+}
+
+.parallax-hero-inner-heading-preview {
+	margin: 0 0 14px 0;
+	font-family: var(--primary);
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 1.25;
+}
+
+/* Ensure inner blocks typography inside editor displays darkly on light silver */
+.parallax-hero-slide-inner-box .block-editor-block-list__layout,
+.parallax-hero-slide-inner-box [data-type="core/paragraph"],
+.parallax-hero-slide-inner-box [data-type="core/heading"],
+.parallax-hero-slide-inner-box p,
+.parallax-hero-slide-inner-box h1,
+.parallax-hero-slide-inner-box h2,
+.parallax-hero-slide-inner-box h3,
+.parallax-hero-slide-inner-box h4,
+.parallax-hero-slide-inner-box li {
+	color: black;
+}
+
+.parallax-hero-slide-inner-box .block-editor-default-block-appender__content {
+	color: #666666 !important;
+}
+
+.parallax-hero-slide-inner-box .block-editor-rich-text__editable:focus {
+	outline-color: #DAB108 !important;
+}
+
+.block-editor-button-block-appender {
+	background-color: white;
+}
+
