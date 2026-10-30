@@ -29,3 +29,15 @@ body {
 html :where(.wp-block) {
     max-width: 100%;
 }
+
+section.wp-block-group .wp-block-group__inner-container {
+    margin: 0 auto;
+    max-width: var(--desktop);
+    width: calc( 100% - 2rem );
+}
+
+.page-content h1,
+body.home .page-content h2 {
+    font: 400 2rem var(--secondary);
+    margin-bottom: 1rem;
+}

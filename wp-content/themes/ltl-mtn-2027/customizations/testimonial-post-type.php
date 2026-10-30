@@ -108,3 +108,114 @@ function save_testimonial_metaboxes( $post_id ) {
 }
 add_action( 'save_post', 'save_testimonial_metaboxes' );
 
+/**
+ * Testimonials Carousel Shortcode
+ *
+ * Usage: [testimonials_carousel category="carousel" autoplay="true" speed="5"]
+ */
+function testimonials_carousel_shortcode( $atts ) {
+    $atts = shortcode_atts(
+        array(
+            'category' => 'carousel',
+            'autoplay' => 'true',
+            'speed'    => '5',
+        ),
+        $atts,
+        'testimonials_carousel'
+    );
+
+    $category = sanitize_text_field( $atts['category'] );
+    $autoplay = filter_var( $atts['autoplay'], FILTER_VALIDATE_BOOLEAN );
+    $speed = floatval( $atts['speed'] );
+    if ( $speed <= 0 ) {
+        $speed = 5;
+    }
+
+    $args = array(
+        'post_type'      => 'testimonial',
+        'posts_per_page' => -1,
+        'orderby'        => 'menu_order',
+        'order'          => 'ASC',
+        'post_status'    => 'publish',
+    );
+
+    if ( ! empty( $category ) ) {
+        $term = get_term_by( 'slug', $category, 'testimonial_category' );
+        if ( ! $term ) {
+            $term = get_term_by( 'name', $category, 'testimonial_category' );
+        }
+        $term_slug = $term ? $term->slug : $category;
+
+        $args['tax_query'] = array(
+            array(
+                'taxonomy' => 'testimonial_category',
+                'field'    => 'slug',
+                'terms'    => $term_slug,
+            ),
+        );
+    }
+
+    $query = new WP_Query( $args );
+
+    if ( ! $query->have_posts() ) {
+        return '';
+    }
+
+    static $carousel_instance = 0;
+    $carousel_instance++;
+    $carousel_id = 'testimonials-carousel-' . $carousel_instance;
+
+    ob_start();
+    ?>
+    <div id="<?php echo esc_attr( $carousel_id ); ?>" 
+         class="testimonials-carousel-wrapper" 
+         data-autoplay="<?php echo $autoplay ? 'true' : 'false'; ?>" 
+         data-speed="<?php echo esc_attr( $speed ); ?>">
+        
+        <button type="button" class="carousel-arrow carousel-prev" aria-label="<?php esc_attr_e( 'Previous testimonials' ); ?>">
+            <svg width="28" height="42" viewBox="0 0 28 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="28,0 0,21 28,42" fill="currentColor" />
+            </svg>
+        </button>
+
+        <div class="testimonials-carousel-viewport">
+            <div class="testimonials-carousel-track">
+                <?php
+                while ( $query->have_posts() ) :
+                    $query->the_post();
+                    $attribution = get_post_meta( get_the_ID(), 'attribution', true );
+                    $excerpt = get_the_excerpt();
+                ?>
+                    <article class="carousel-slide testimonial-item">
+                        <div class="testimonial-bubble">
+                            <div class="testimonial-content">
+                                <?php if ( ! empty( $excerpt ) ) : ?>
+                                    <?php echo esc_html( $excerpt ); ?>
+                                <?php else : ?>
+                                    <?php the_content(); ?>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                        <?php if ( ! empty( $attribution ) ) : ?>
+                            <div class="testimonial-attribution">
+                                <?php echo esc_html( $attribution ); ?>
+                            </div>
+                        <?php endif; ?>
+                    </article>
+                <?php endwhile; ?>
+            </div>
+        </div>
+
+        <button type="button" class="carousel-arrow carousel-next" aria-label="<?php esc_attr_e( 'Next testimonials' ); ?>">
+            <svg width="28" height="42" viewBox="0 0 28 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="0,0 28,21 0,42" fill="currentColor" />
+            </svg>
+        </button>
+    </div>
+    <?php
+    wp_reset_postdata();
+    return ob_get_clean();
+}
+add_shortcode( 'testimonials_carousel', 'testimonials_carousel_shortcode' );
+
+

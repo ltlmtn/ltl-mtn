@@ -17,6 +17,9 @@ function asw_enqueue_scripts() {
 	// JQuery
 	wp_enqueue_script('jquery');
 
+	// Testimonials Carousel
+	wp_enqueue_script('testimonials-carousel', $theme . '/assets/testimonials-carousel.js', array(), $styleSheetHash, true);
+
 }
 add_action('wp_enqueue_scripts', 'asw_enqueue_scripts');
 
