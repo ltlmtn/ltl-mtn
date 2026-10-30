@@ -10,6 +10,12 @@
 <main>
     <div class="page-content content-width">
 
+        <?php if ( is_front_page() && is_active_sidebar( 'homepage_blurb' ) ) : ?>
+            <div class="homepage-blurb">
+                <?php dynamic_sidebar( 'homepage_blurb' ); ?>
+            </div>
+        <?php endif; ?>
+
         <?php the_content(); ?>
 
         <?php

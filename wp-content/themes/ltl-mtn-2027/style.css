@@ -128,6 +128,20 @@ a:visited {
     width: calc(100% - 2rem);
 }
 
+.page-content {
+    position: relative;
+    z-index: 1;
+}
+
+.page-content p {
+    margin-bottom: 1rem;
+}
+
+.page-content h1 {
+    font: 400 2rem var(--secondary);
+    margin-bottom: 1rem;
+}
+
 header.page-header {
     background-color: black;
     color: white;
@@ -188,4 +202,23 @@ header .slogan {
 
 body.menu-active .main-navigation {
     max-height: 300px;
+}
+
+.homepage-blurb {
+    background-color: white;
+    padding: 1rem 0;
+    width: 100%;
+}
+
+@media screen and ( min-width: 800px ) {
+    .homepage-blurb {
+        background: linear-gradient(0deg,rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 1) 100%);
+        border-radius: 0 0 1rem 0.25rem;
+        position: absolute;
+        top: 0;
+        left: -1rem;
+        padding: 1rem;
+        width: 50%;
+        z-index: 3;
+    }
 }

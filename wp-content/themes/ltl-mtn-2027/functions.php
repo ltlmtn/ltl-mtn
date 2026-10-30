@@ -36,6 +36,15 @@ function register_my_menus() {
 function asw_widgets_init() {
 
 	register_sidebar( array(
+		'name'          => 'Homepage Blurb',
+		'id'            => 'homepage_blurb',
+		'before_widget' => '',
+		'after_widget'  => '',
+		'before_title'  => '',
+		'after_title'   => ''
+	) );
+
+	register_sidebar( array(
 		'name'          => 'Footer Content',
 		'id'            => 'footer_content',
 		'before_widget' => '',
