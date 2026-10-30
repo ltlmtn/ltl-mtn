@@ -133,6 +133,10 @@ a:visited {
     z-index: 1;
 }
 
+body:not(.home) .page-content {
+    padding-top: 2rem;
+}
+
 .page-content p {
     margin-bottom: 1rem;
 }
@@ -210,6 +214,11 @@ body.menu-active .main-navigation {
     width: 100%;
 }
 
+:root :where(.wp-element-button, .wp-block-button__link) {
+    border-radius: 0.25rem;
+    font-weight: 600;
+}
+
 @media screen and ( min-width: 800px ) {
     .homepage-blurb {
         background: linear-gradient(0deg,rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 1) 100%);
@@ -221,4 +230,108 @@ body.menu-active .main-navigation {
         width: 50%;
         z-index: 3;
     }
+}
+
+/* Testimonials Grid */
+.testimonial-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 2.5rem 0 4rem;
+}
+
+@media screen and (max-width: 1024px) {
+    .testimonial-grid {
+        gap: 1.5rem;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.testimonial-item {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.testimonial-bubble {
+    background: var(--goldenrod);
+    border-radius: 4px 4px 0 0;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: column;
+    padding: 2rem;
+    position: relative;
+}
+
+.testimonial-bubble::after {
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid var(--goldenrod);
+    bottom: -10px;
+    content: '';
+    height: 0;
+    position: absolute;
+    right: 2rem;
+    width: 0;
+    z-index: 2;
+}
+
+.testimonial-bubble::before {
+    border-left: 11px solid transparent;
+    border-right: 11px solid transparent;
+    border-top: 11px solid var(--silver);
+    bottom: -11px;
+    content: '';
+    height: 0;
+    position: absolute;
+    right: calc(2rem - 1px);
+    width: 0;
+    z-index: 1;
+}
+
+.testimonial-content {
+    color: #000000;
+    font-family: var(--primary);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.testimonial-content p {
+    margin-bottom: 0.75rem;
+}
+
+.testimonial-content p:last-child {
+    margin-bottom: 0;
+}
+
+.testimonial-attribution {
+    background-color: #000000;
+    border-radius: 0 0 4px 4px;
+    color: #ffffff;
+    font-family: var(--primary);
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.4;
+    padding: 1.25rem 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+section.wp-block-group {
+    margin-left: 50%;
+    translate: -50% 0;
+    width: 100vw;
+}
+
+section.wp-block-group .wp-block-group__inner-container {
+    margin: 0 auto;
+    max-width: var(--desktop);
+    width: calc( 100% - 2rem );
 }

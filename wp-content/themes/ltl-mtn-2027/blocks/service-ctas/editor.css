@@ -1,0 +1,179 @@
+/**
+ * Service CTAs Block - Editor Styles
+ */
+
+.service-ctas-editor-wrapper {
+	margin: 2rem 0;
+	padding: 1.5rem;
+	background-color: #f7f7f7;
+	border: 1px dashed #d0d0d0;
+	border-radius: 6px;
+}
+
+.service-ctas-editor-banner {
+	display: flex;
+	align-items: center;
+	margin-bottom: 1.5rem;
+	font-family: var(--primary, sans-serif);
+	font-size: 0.9375rem;
+}
+
+.service-ctas-editor-grid .block-editor-block-list__layout {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 1.5rem;
+}
+
+@media (min-width: 800px) {
+	.service-ctas-editor-grid .block-editor-block-list__layout {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (min-width: 1020px) {
+	.service-ctas-editor-grid .block-editor-block-list__layout {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+/* Individual CTA Card Editor */
+.service-cta-card-editor {
+	display: grid !important;
+	grid-template-rows: 190px 1fr;
+	border-radius: 0.25rem;
+	overflow: visible;
+	background: transparent;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+	width: 100%;
+	margin: 0;
+}
+
+.service-cta-card-editor .service-cta-card-header {
+	background-color: var(--mustard, #DAB108);
+	position: relative;
+	height: 190px;
+	border-radius: 0.25rem 0.25rem 0 0;
+	padding: 1rem;
+	box-sizing: border-box;
+}
+
+.service-cta-card-editor .service-cta-card-icon {
+	position: absolute;
+	top: 1rem;
+	left: 1rem;
+	height: 79px;
+	display: flex;
+	align-items: center;
+}
+
+.service-cta-card-editor .service-cta-icon-button {
+	background: transparent;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+	height: 79px;
+}
+
+.service-cta-card-editor .service-cta-card-icon img {
+	height: 79px;
+	width: auto;
+	max-width: 90px;
+	object-fit: contain;
+	display: block;
+}
+
+.service-cta-card-editor .service-cta-card-eyebrow {
+	position: absolute;
+	top: 1.25rem;
+	right: 1rem;
+	max-width: 55%;
+}
+
+.service-cta-inline-eyebrow {
+	background: transparent !important;
+	border: 1px dashed rgba(0, 0, 0, 0.25) !important;
+	border-radius: 2px !important;
+	color: #000000 !important;
+	font-family: var(--primary, sans-serif) !important;
+	font-size: 0.9375rem !important;
+	font-weight: 400 !important;
+	text-align: right !important;
+	width: 100% !important;
+	padding: 2px 4px !important;
+}
+
+.service-cta-inline-eyebrow:focus {
+	border-color: #000000 !important;
+	background: rgba(255, 255, 255, 0.2) !important;
+	outline: none !important;
+}
+
+.service-cta-card-editor .service-cta-card-heading {
+	position: absolute;
+	bottom: 0.625rem;
+	left: 1rem;
+	right: 3rem;
+	max-width: calc(100% - 60px);
+}
+
+.service-cta-inline-heading {
+	background: transparent !important;
+	border: 1px dashed rgba(255, 255, 255, 0.4) !important;
+	border-radius: 2px !important;
+	color: #ffffff !important;
+	font-family: var(--primary, sans-serif) !important;
+	font-size: 1.75rem !important;
+	font-weight: 700 !important;
+	line-height: 1.08 !important;
+	width: 100% !important;
+	padding: 2px 4px !important;
+	resize: none !important;
+}
+
+.service-cta-inline-heading:focus {
+	border-color: #ffffff !important;
+	background: rgba(0, 0, 0, 0.1) !important;
+	outline: none !important;
+}
+
+.service-cta-card-editor .service-cta-card-body {
+	background-color: #000000;
+	color: #ffffff;
+	padding: 1.375rem 1.75rem 1.75rem 1rem;
+	position: relative;
+	border-radius: 0 0 0.25rem 0.25rem;
+	box-sizing: border-box;
+}
+
+.service-cta-card-editor .service-cta-card-body::before {
+	content: '';
+	position: absolute;
+	top: -16px;
+	right: 37px;
+	width: 0;
+	height: 0;
+	border-left: 11px solid transparent;
+	border-right: 11px solid transparent;
+	border-bottom: 16px solid #000000;
+	pointer-events: none;
+}
+
+.service-cta-inline-blurb {
+	background: transparent !important;
+	border: 1px dashed rgba(255, 255, 255, 0.2) !important;
+	border-radius: 2px !important;
+	color: #ffffff !important;
+	font-family: var(--primary, sans-serif) !important;
+	font-size: 0.9375rem !important;
+	font-weight: 400 !important;
+	line-height: 1.5 !important;
+	width: 100% !important;
+	padding: 4px 6px !important;
+	resize: vertical !important;
+}
+
+.service-cta-inline-blurb:focus {
+	border-color: #ffffff !important;
+	background: rgba(255, 255, 255, 0.05) !important;
+	outline: none !important;
+}

@@ -1,0 +1,165 @@
+/**
+ * Service CTAs Block Styles
+ *
+ * Requirements:
+ * - Arranged in a CSS grid (mobile first: 1 col default, 2 cols at 800px, 3 cols at 1020px using @container).
+ * - Icon, eyebrow, and heading absolutely positioned in the gold area at the top.
+ * - Blurb in the black area beneath.
+ * - CSS grid ensures black blurb area expands uniformly to the height of the longest blurb.
+ * - Use style variables from style.css (--mustard, --primary, etc.).
+ */
+
+.service-ctas {
+	container-type: inline-size;
+	width: 100%;
+	margin: 3rem 0;
+	box-sizing: border-box;
+}
+
+.service-ctas-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 2rem;
+	align-items: stretch;
+}
+
+@container (min-width: 800px) {
+	.service-ctas-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@container (min-width: 1020px) {
+	.service-ctas-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+/* Fallback for browsers or contexts without @container support */
+@supports not (container-type: inline-size) {
+	@media screen and (min-width: 800px) {
+		.service-ctas-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	@media screen and (min-width: 1020px) {
+		.service-ctas-grid {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+}
+
+/* Individual CTA Card */
+.service-cta-card {
+	display: grid;
+	grid-template-rows: 190px 1fr;
+	height: 100%;
+	border-radius: 0.25rem;
+	box-sizing: border-box;
+}
+
+/* Gold Header Area */
+.service-cta-header {
+	background-color: var(--mustard, #DAB108);
+	position: relative;
+	height: 190px;
+	border-radius: 0.25rem 0.25rem 0 0;
+	box-sizing: border-box;
+}
+
+/* Absolutely positioned Icon (top-left) */
+.service-cta-icon {
+	position: absolute;
+	top: 1rem;
+	left: 1.125rem;
+	height: 79px;
+	display: flex;
+	align-items: center;
+}
+
+.service-cta-icon img,
+.service-cta-icon svg {
+	height: 79px;
+	width: auto;
+	max-width: 90px;
+	display: block;
+	object-fit: contain;
+}
+
+/* Absolutely positioned Eyebrow (top-right) */
+.service-cta-eyebrow {
+	position: absolute;
+	top: 1.25rem;
+	right: 1.125rem;
+	color: #000000;
+	font-family: var(--primary, 'Arimo', sans-serif);
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.2;
+	text-align: right;
+}
+
+/* Absolutely positioned Heading (bottom-left) */
+.service-cta-heading {
+	position: absolute;
+	bottom: 0.5rem;
+	left: 1.125rem;
+	right: 3.5rem;
+	max-width: calc(100% - 64px);
+	color: #ffffff;
+	font-family: var(--primary, 'Arimo', sans-serif);
+	font-size: 2rem;
+	font-weight: 700;
+	line-height: 1.05;
+	margin: 0;
+	letter-spacing: -0.01em;
+	word-break: break-word;
+}
+
+/* Black Body Area (Uniform expansion with CSS grid 1fr) */
+.service-cta-body {
+	background-color: #000000;
+	color: #ffffff;
+	padding: 1.25rem 2.125rem 1.75rem 1.125rem;
+	position: relative;
+	border-radius: 0 0 0.25rem 0.25rem;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+}
+
+/* Upward pointing black triangle notch into gold header */
+.service-cta-body::before {
+	content: '';
+	position: absolute;
+	top: -16px;
+	right: 37px;
+	width: 0;
+	height: 0;
+	border-left: 11px solid transparent;
+	border-right: 11px solid transparent;
+	border-bottom: 16px solid #000000;
+	pointer-events: none;
+}
+
+/* Blurb Text */
+.service-cta-blurb {
+	font-family: var(--primary, 'Arimo', sans-serif);
+	font-size: 1.125rem;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #ffffff;
+	margin: 0;
+}
+
+.service-cta-blurb p {
+	margin: 0;
+	color: inherit;
+	font-size: inherit;
+	line-height: inherit;
+}
+
+.service-cta-blurb p + p {
+	margin-top: 1rem;
+}

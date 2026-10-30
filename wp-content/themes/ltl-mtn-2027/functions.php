@@ -77,11 +77,6 @@ function mytheme_setup() {
 			'color' => '#DAB108',
 		),
 		array(
-			'name' => __( 'Mustard' ),
-			'slug' => 'mustard',
-			'color' => '#DAB108',
-		),
-		array(
 			'name' => __( 'Goldenrod' ),
 			'slug' => 'goldenrod',
 			'color' => '#EDD883',
@@ -143,6 +138,7 @@ add_action('template_redirect', 'redirect_404_to_homepage');
 get_template_part('customizations/page-seo');
 get_template_part('customizations/customizations');
 get_template_part('customizations/portfolio-post-type');
+get_template_part('customizations/testimonial-post-type');
 
 /**
  * Register Parallax Hero Custom Blocks
@@ -194,3 +190,102 @@ function ltl_mtn_parallax_hero_editor_data() {
 	);
 }
 add_action( 'enqueue_block_editor_assets', 'ltl_mtn_parallax_hero_editor_data' );
+
+/**
+ * Enable SVG uploads in WordPress Media Library
+ */
+function ltl_mtn_mime_types( $mimes ) {
+	$mimes['svg']  = 'image/svg+xml';
+	$mimes['svgz'] = 'image/svg+xml';
+	return $mimes;
+}
+add_filter( 'upload_mimes', 'ltl_mtn_mime_types' );
+
+function ltl_mtn_check_filetype_and_ext( $data, $file, $filename, $mimes ) {
+	if ( empty( $data['ext'] ) && ! empty( $filename ) && preg_match( '/\.svg$/i', $filename ) ) {
+		$data['ext']  = 'svg';
+		$data['type'] = 'image/svg+xml';
+	}
+	return $data;
+}
+add_filter( 'wp_check_filetype_and_ext', 'ltl_mtn_check_filetype_and_ext', 10, 4 );
+
+/**
+ * Register Service CTAs Custom Blocks
+ */
+function ltl_mtn_register_service_ctas_block() {
+	register_block_type( get_template_directory() . '/blocks/service-ctas' );
+
+	register_block_type( 'ltl-mtn/service-cta', array(
+		'apiVersion'      => 3,
+		'title'           => __( 'Service CTA', 'ltl-mtn' ),
+		'category'        => 'theme',
+		'parent'          => array( 'ltl-mtn/service-ctas' ),
+		'attributes'      => array(
+			'icon'    => array(
+				'type'    => 'object',
+				'default' => null,
+			),
+			'eyebrow' => array(
+				'type'    => 'string',
+				'default' => '',
+			),
+			'heading' => array(
+				'type'    => 'string',
+				'default' => '',
+			),
+			'blurb'   => array(
+				'type'    => 'string',
+				'default' => '',
+			),
+		),
+		'supports'        => array(
+			'html'     => false,
+			'reusable' => false,
+		),
+		'render_callback' => function( $attributes, $content ) {
+			return $content;
+		},
+	) );
+}
+add_action( 'init', 'ltl_mtn_register_service_ctas_block' );
+
+/**
+ * Pass service CTA asset URLs and sample data to block editor
+ */
+function ltl_mtn_service_ctas_editor_data() {
+	$theme_uri = get_template_directory_uri();
+	wp_localize_script(
+		'ltl-mtn-service-ctas-editor-script',
+		'ltlMtnServiceCtasData',
+		array(
+			'icons'   => array(
+				'strategy'    => $theme_uri . '/assets/images/icon-strategy.svg',
+				'development' => $theme_uri . '/assets/images/icon-development.svg',
+				'marketing'   => $theme_uri . '/assets/images/icon-marketing.svg',
+			),
+			'samples' => array(
+				array(
+					'eyebrow' => 'Driven by experience.',
+					'heading' => "Strategy &\nBranding",
+					'blurb'   => 'Effective brand strategies start with careful listening. We engage with our clients at a deep level, applying decades of experience and prioritizing measured goals over short-term hype.',
+					'iconUrl' => $theme_uri . '/assets/images/icon-strategy.svg',
+				),
+				array(
+					'eyebrow' => 'Meticulous and bespoke.',
+					'heading' => "Design &\nDevelopment",
+					'blurb'   => 'We specialize in crafting unique, brand-centric websites that do exactly what you need them to and nothing that you don’t. No templates, no slop, no bloat. Just your authentic voice on the web.',
+					'iconUrl' => $theme_uri . '/assets/images/icon-development.svg',
+				),
+				array(
+					'eyebrow' => 'Informed and effective.',
+					'heading' => "Marketing &\nManagement",
+					'blurb'   => 'We manage your digital presence with strategic rigor and heart. Combining the best available tools and hard-won intuition, we help you achieve progressive growth with credibility.',
+					'iconUrl' => $theme_uri . '/assets/images/icon-marketing.svg',
+				),
+			),
+		)
+	);
+}
+add_action( 'enqueue_block_editor_assets', 'ltl_mtn_service_ctas_editor_data' );
+

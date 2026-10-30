@@ -1,0 +1,32 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ltl-mtn/service-ctas",
+  "version": "1.0.0",
+  "title": "Service CTAs",
+  "category": "theme",
+  "icon": "grid-view",
+  "description": "Repeater grid of service call-to-actions with gold headers and uniform black blurbs.",
+  "keywords": [
+    "service",
+    "cta",
+    "call to action",
+    "grid",
+    "repeater",
+    "cards"
+  ],
+  "supports": {
+    "align": ["wide", "full"],
+    "html": false
+  },
+  "attributes": {
+    "items": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "editorScript": "file:./editor.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css",
+  "render": "file:./render.php"
+}
