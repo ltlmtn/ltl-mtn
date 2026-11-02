@@ -212,6 +212,18 @@ header .slogan {
     padding: 1rem;
 }
 
+.main-navigation>ul>li>a {
+    margin: 0.25rem 0;
+}
+
+.main-navigation>ul>li>a:hover {
+    color: var(--goldenrod);
+}
+
+.main-navigation>ul .current-menu-item a {
+    color: white;
+}
+
 body.menu-active .main-navigation {
     max-height: 300px;
 }
