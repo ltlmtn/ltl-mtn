@@ -292,3 +292,41 @@ function ltl_mtn_service_ctas_editor_data() {
 }
 add_action( 'enqueue_block_editor_assets', 'ltl_mtn_service_ctas_editor_data' );
 
+/**
+ * Register Team Bios Custom Blocks
+ */
+function ltl_mtn_register_team_bios_block() {
+	register_block_type( get_template_directory() . '/blocks/team-bios' );
+
+	register_block_type( 'ltl-mtn/team-bio', array(
+		'apiVersion'      => 3,
+		'title'           => __( 'Team Bio', 'ltl-mtn' ),
+		'category'        => 'theme',
+		'parent'          => array( 'ltl-mtn/team-bios' ),
+		'attributes'      => array(
+			'image' => array(
+				'type'    => 'object',
+				'default' => null,
+			),
+			'name'  => array(
+				'type'    => 'string',
+				'default' => '',
+			),
+			'bio'   => array(
+				'type'    => 'string',
+				'default' => '',
+			),
+		),
+		'supports'        => array(
+			'html'     => false,
+			'reusable' => false,
+			'inserter' => true,
+		),
+		'render_callback' => function( $attributes, $content ) {
+			return $content;
+		},
+	) );
+}
+add_action( 'init', 'ltl_mtn_register_team_bios_block' );
+
+

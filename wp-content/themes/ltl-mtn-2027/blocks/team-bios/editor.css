@@ -1,0 +1,169 @@
+/**
+ * Team Bios Block - Editor Styles
+ */
+
+.team-bios-editor-wrapper {
+	margin: 2rem 0;
+	padding: 1.5rem;
+	background-color: #f7f7f7;
+	border: 1px dashed #d0d0d0;
+	border-radius: 6px;
+}
+
+.team-bios-editor-banner {
+	display: flex;
+	align-items: center;
+	margin-bottom: 1.5rem;
+	font-family: var(--primary, sans-serif);
+	font-size: 0.9375rem;
+}
+
+.team-bios-editor-grid .block-editor-block-list__layout {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+	gap: 1.5rem;
+}
+
+/* Individual Team Bio Card in Editor */
+.team-bio-card-editor {
+	display: flex !important;
+	flex-direction: column;
+	border-radius: 4px;
+	background: #ffffff;
+	border: 1px solid #e0e0e0;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+	overflow: hidden;
+	width: 100%;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+/* Headshot Media Upload Area */
+.team-bio-editor-headshot-wrap {
+	position: relative;
+	width: 100%;
+	aspect-ratio: 2 / 3;
+	background-color: #1a1a1a;
+	overflow: hidden;
+}
+
+.team-bio-editor-image-preview {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+}
+
+.team-bio-editor-image-preview img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	filter: grayscale(100%);
+	transition: filter 0.2s ease;
+}
+
+.team-bio-editor-image-preview:hover img {
+	filter: grayscale(0%);
+}
+
+.team-bio-editor-image-overlay-hint {
+	position: absolute;
+	top: 6px;
+	right: 6px;
+	background: rgba(0, 0, 0, 0.7);
+	color: #ffffff;
+	font-size: 0.6875rem;
+	padding: 2px 6px;
+	border-radius: 3px;
+	opacity: 0;
+	transition: opacity 0.2s ease;
+	pointer-events: none;
+}
+
+.team-bio-editor-image-preview:hover .team-bio-editor-image-overlay-hint {
+	opacity: 1;
+}
+
+.team-bio-editor-image-placeholder {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	padding: 1rem;
+	box-sizing: border-box;
+}
+
+/* Plus Indicator in Bottom Right */
+.team-bio-editor-plus-indicator {
+	position: absolute;
+	bottom: 8px;
+	right: 8px;
+	width: 20px;
+	height: 20px;
+	background: rgba(0, 0, 0, 0.7);
+	color: var(--mustard, #DAB108);
+	font-size: 14px;
+	font-weight: 700;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 2px;
+	pointer-events: none;
+	line-height: 1;
+}
+
+/* Details Area */
+.team-bio-editor-details {
+	padding: 0.875rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+	background: #ffffff;
+	flex-grow: 1;
+}
+
+.team-bio-editor-name-field .components-base-control__label {
+	font-size: 0.75rem;
+	font-weight: 600;
+	margin-bottom: 2px;
+	color: #555555;
+}
+
+.team-bio-editor-name-field input {
+	font-family: var(--primary, sans-serif);
+	font-size: 0.875rem;
+}
+
+.team-bio-editor-bio-field {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.team-bio-editor-bio-label {
+	font-size: 0.75rem;
+	font-weight: 600;
+	color: #555555;
+}
+
+.team-bio-editor-richtext {
+	min-height: 60px;
+	max-height: 140px;
+	overflow-y: auto;
+	border: 1px solid #cccccc;
+	border-radius: 2px;
+	padding: 6px 8px;
+	font-family: var(--primary, sans-serif);
+	font-size: 0.8125rem;
+	line-height: 1.4;
+	color: #222222;
+	background: #fafafa;
+}
+
+.team-bio-editor-richtext:focus {
+	border-color: #007cba;
+	background: #ffffff;
+	outline: none;
+}

@@ -1,0 +1,251 @@
+
+/**
+ * Team Bios Block Frontend Styles
+ *
+ * Requirements:
+ * - Grid of headshot images with maximum width of 175px per image.
+ * - Grayscale by default, fading to color on hover.
+ * - If entry includes a bio, a var(--mustard) "+" sign is displayed in the lower right corner.
+ * - When clicked, an overlay displays bio content in a scrolling <div>.
+ * - While active, "+" rotates -45º to become an "x".
+ * - Clicking "x" returns entry to original state.
+ */
+
+.team-bios {
+	container-type: inline-size;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.team-bios-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 175px));
+	gap: 1.25rem 1rem;
+	justify-content: start;
+	align-items: start;
+}
+
+@container (max-width: 540px) {
+	.team-bios-grid {
+		grid-template-columns: repeat(2, minmax(0, 175px));
+	}
+}
+
+@container (max-width: 360px) {
+	.team-bios-grid {
+		grid-template-columns: repeat(1, minmax(0, 175px));
+	}
+}
+
+@supports not (container-type: inline-size) {
+	@media screen and (max-width: 600px) {
+		.team-bios-grid {
+			grid-template-columns: repeat(2, minmax(0, 175px));
+		}
+	}
+
+	@media screen and (max-width: 400px) {
+		.team-bios-grid {
+			grid-template-columns: repeat(1, minmax(0, 175px));
+		}
+	}
+}
+
+/* Individual Team Member Card */
+.team-bio {
+	max-width: 175px;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.team-bio-card {
+	position: relative;
+	width: 100%;
+	aspect-ratio: 2 / 3;
+	border-radius: 4px;
+	overflow: hidden;
+	background-color: #000000;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Headshot Image (Grayscale with Color Fade on Hover) */
+.team-bio-image {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.team-bio.has-bio .team-bio-image {
+	cursor: pointer;
+}
+
+.team-bio-image img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 4px;
+	filter: grayscale(100%);
+	transition: filter 0.35s ease;
+}
+
+.team-bio:hover .team-bio-image img,
+.team-bio:focus-within .team-bio-image img {
+	filter: grayscale(0%);
+}
+
+.team-bio.is-active .team-bio-image img {
+	filter: grayscale(0%);
+}
+
+/* Placeholder for missing headshots */
+.team-bio-placeholder {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	background-color: #222222;
+	color: #888888;
+	font-family: var(--primary, sans-serif);
+	font-size: 0.8125rem;
+	padding: 1rem;
+	text-align: center;
+}
+
+/* Bio Overlay (shown when active) */
+.team-bio-overlay {
+	position: absolute;
+	inset: 0;
+	background-color: rgba(0, 0, 0, 0.85);
+	border-radius: 4px;
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+	transition: opacity 0.3s ease, visibility 0.3s ease;
+	z-index: 3;
+}
+
+.team-bio.is-active .team-bio-overlay {
+	opacity: 1;
+	visibility: visible;
+	pointer-events: auto;
+}
+
+/* Scrolling <div> containing Bio Content */
+.team-bio-overlay-content {
+	position: absolute;
+	inset: 0;
+	overflow-y: auto;
+	padding: 1rem 1rem 2.25rem 1rem;
+	color: #ffffff;
+	box-sizing: border-box;
+	scrollbar-width: thin;
+	scrollbar-color: var(--mustard, #DAB108) transparent;
+	width: calc( 100% - 1rem );
+	height: calc(100% - 3rem);
+	top: 1rem;
+}
+
+.team-bio-overlay-content::-webkit-scrollbar {
+	width: 4px;
+}
+
+.team-bio-overlay-content::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+.team-bio-overlay-content::-webkit-scrollbar-thumb {
+	background-color: var(--mustard, #DAB108);
+	border-radius: 2px;
+}
+
+.team-bio-overlay-name {
+	font-family: var(--secondary, 'Old Standard TT', serif);
+	font-size: 1.125rem;
+	font-weight: 700;
+	line-height: 1.2;
+	color: var(--goldenrod, #EDD883);
+	margin: 0 0 0.5rem 0;
+}
+
+.team-bio-overlay-text {
+	font-family: var(--primary, 'Arimo', sans-serif);
+	font-size: 0.75rem;
+	font-weight: 400;
+	line-height: 1.45;
+	color: #ffffff;
+}
+
+.team-bio-overlay-text p {
+	margin: 0 0 0.5rem 0;
+}
+
+.team-bio-overlay-text p:last-child {
+	margin-bottom: 0;
+}
+
+/* Toggle Button with "+" sign rotating -45º to "x" */
+.team-bio-toggle {
+	position: absolute;
+	bottom: 8px;
+	right: 8px;
+	width: 24px;
+	height: 24px;
+	padding: 0;
+	margin: 0;
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 5;
+	color: var(--mustard, #DAB108);
+	outline: none;
+}
+
+.team-bio-toggle:focus-visible {
+	outline: 2px solid var(--mustard, #DAB108);
+	outline-offset: 2px;
+	border-radius: 2px;
+}
+
+.team-bio-toggle-icon {
+	position: relative;
+	display: block;
+	width: 16px;
+	height: 16px;
+	transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	transform-origin: center center;
+}
+
+.team-bio-toggle-icon::before,
+.team-bio-toggle-icon::after {
+	content: '';
+	position: absolute;
+	background-color: var(--mustard, #DAB108);
+	transition: background-color 0.2s ease;
+}
+
+/* Horizontal bar of "+" */
+.team-bio-toggle-icon::before {
+	top: 7px;
+	left: 0;
+	width: 16px;
+	height: 2px;
+}
+
+/* Vertical bar of "+" */
+.team-bio-toggle-icon::after {
+	top: 0;
+	left: 7px;
+	width: 2px;
+	height: 16px;
+}
+
+/* Active State: Rotate -45º to become an "x" */
+.team-bio.is-active .team-bio-toggle-icon {
+	transform: rotate(-45deg);
+}
+

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ltl-mtn/team-bios",
+  "version": "1.0.0",
+  "title": "Team Bios",
+  "category": "theme",
+  "icon": "groups",
+  "description": "Repeater grid of team member bios with grayscale headshots and interactive bio overlays.",
+  "keywords": [
+    "team",
+    "bios",
+    "members",
+    "staff",
+    "grid",
+    "repeater"
+  ],
+  "supports": {
+    "align": ["wide", "full"],
+    "html": false
+  },
+  "attributes": {
+    "items": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "editorScript": "file:./editor.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css",
+  "viewScript": "file:./view.js",
+  "render": "file:./render.php"
+}
