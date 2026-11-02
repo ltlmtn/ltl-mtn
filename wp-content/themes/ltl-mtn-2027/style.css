@@ -84,11 +84,11 @@ img {
 }
 
 #wpadminbar {
-  opacity: 0.1;
+    opacity: 0.1;
 }
 
 #wpadminbar:hover {
-  opacity: 1;
+    opacity: 1;
 }
 
 .grecaptcha-badge {
@@ -101,25 +101,26 @@ img {
     right: 1rem;
     position: fixed;
     transition: all 1s linear;
+    z-index: 10;
 }
 
 body.scrolled .back-to-top-link {
-    bottom: 1rem;
+    bottom: 3rem;
     opacity: 1;
 }
 
 a {
-  color: var(--mustard);
-  text-decoration: none;
+    color: var(--mustard);
+    text-decoration: none;
 }
 
 a:hover {
-  color: var(--mustard);
-  text-decoration: none;
+    color: var(--mustard);
+    text-decoration: none;
 }
 
 a:visited {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 .content-width {
@@ -180,7 +181,7 @@ header.page-header .logo {
 }
 
 body.menu-active .menu-open,
-body:not(.menu-active) .menu-close  {
+body:not(.menu-active) .menu-close {
     display: none;
 }
 
@@ -205,7 +206,7 @@ header .slogan {
     transition: max-height 0.5s ease;
 }
 
-.main-navigation > ul {
+.main-navigation>ul {
     list-style: none;
     padding: 1rem;
 }
@@ -229,9 +230,9 @@ footer {
     font-weight: 600;
 }
 
-@media screen and ( min-width: 800px ) {
+@media screen and (min-width: 800px) {
     .homepage-blurb {
-        background: linear-gradient(0deg,rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 1) 100%);
+        background: linear-gradient(0deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 1) 100%);
         border-radius: 0 0 1rem 0.25rem;
         position: absolute;
         top: 0;
@@ -343,7 +344,7 @@ section.wp-block-group {
 section.wp-block-group .wp-block-group__inner-container {
     margin: 0 auto;
     max-width: var(--desktop);
-    width: calc( 100% - 2rem );
+    width: calc(100% - 2rem);
 }
 
 /* Testimonials Carousel */
@@ -486,14 +487,53 @@ section.wp-block-group .wp-block-group__inner-container {
     background-color: var(--mustard);
 }
 
+footer#site-footer {
+    background-color: var(--mustard);
+    border-bottom: 1rem solid black;
+    color: black;
+    padding: 4rem 0 0 0;
+}
+
+footer#site-footer .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+footer#site-footer .footer-column-1,
+footer#site-footer .footer-column-2 {
+    display: flex;
+    gap: 1rem;
+    justify-content: left;
+    align-items: end;
+}
+
+footer#site-footer .footer-icon img {
+    translate: 0 1px;
+}
+
+footer#site-footer .footer-contact:after {
+    content: "|";
+    color: white;
+    margin: 0 0 0 1rem;
+    display: inline-block;
+}
+
+footer#site-footer a {
+    color: black;
+    text-decoration: none;
+}
+
 /* Responsive adjustments */
 @media screen and (max-width: 1340px) {
     .testimonials-carousel-wrapper {
         padding: 0 45px;
     }
+
     .carousel-arrow.carousel-prev {
         left: 8px;
     }
+
     .carousel-arrow.carousel-next {
         right: 8px;
     }
@@ -503,8 +543,23 @@ section.wp-block-group .wp-block-group__inner-container {
     .testimonials-carousel-track {
         gap: 1.5rem;
     }
+
     .carousel-slide {
         flex: 0 0 calc((100% - 1.5rem) / 2);
+    }
+}
+
+@media screen and (max-width: 800px) {
+    footer#site-footer .footer-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    footer#site-footer .footer-column-1,
+    footer#site-footer .footer-column-2 {
+        justify-content: center;
+        align-items: flex-end;
     }
 }
 
@@ -512,18 +567,23 @@ section.wp-block-group .wp-block-group__inner-container {
     .testimonials-carousel-wrapper {
         padding: 0 40px;
     }
+
     .testimonials-carousel-track {
         gap: 1rem;
     }
+
     .carousel-slide {
         flex: 0 0 100%;
     }
+
     .carousel-arrow.carousel-prev {
         left: 4px;
     }
+
     .carousel-arrow.carousel-next {
         right: 4px;
     }
+
     .carousel-arrow svg {
         height: 32px;
         width: 22px;

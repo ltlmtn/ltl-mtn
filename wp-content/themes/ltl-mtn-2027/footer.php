@@ -1,23 +1,29 @@
 <!-- FOOTER.PHP ++++++++++++++++++++++ -->
 <?php
     $site_name = get_bloginfo('name');
+    $theme = get_stylesheet_directory_uri();
 ?>
 
-<footer>
-    <?php if( is_active_sidebar('footer_content') ) : ?>
-        <div class="footer-widgets content-width">
-            <?php dynamic_sidebar('footer_content'); ?>
+<footer id="site-footer">
+    <div class="footer-content content-width">
+        <div class="footer-column-1">
+            <div class="footer-contact"><a href="mailto:info@ltl-mtn.com">info@ltl-mtn.com</a></div>
+            <div class="footer-location">Kingston, NY</div>
         </div>
-    <?php endif; ?>
-    <div class="copyright content-width">
-        &copy; <?= date('Y'); ?> Ltl Mtn Inc.
+        <div class="footer-column-2">
+            <div class="footer-company-name"><?= $site_name; ?></div>
+            <div class="footer-icon">
+                <img src="<?= $theme; ?>/assets/images/footer-icon.svg" alt="Footer Icon" />
+            </div>
+            <div class="footer-copyright">&copy; <?= date('Y'); ?> and still human.</div>
+        </div>
     </div>
 </footer>
 
 
 <div class="back-to-top">
     <a href="#top" class="back-to-top-link">
-        <img src="<?= get_stylesheet_directory_uri(); ?>/assets/images/back-to-top.svg" alt="Back to top" />
+        <img src="<?= $theme; ?>/assets/images/back-to-top.svg" alt="Back to top" />
     </a>
 </div>
 

@@ -47,15 +47,6 @@ function asw_widgets_init() {
 		'after_title'   => ''
 	) );
 
-	register_sidebar( array(
-		'name'          => 'Footer Content',
-		'id'            => 'footer_content',
-		'before_widget' => '',
-		'after_widget'  => '',
-		'before_title'  => '',
-		'after_title'   => ''
-	) );
-
 }
 add_action( 'widgets_init', 'asw_widgets_init' );
 
