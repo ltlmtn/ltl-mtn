@@ -147,6 +147,11 @@ body.home .page-content h2 {
     margin-bottom: 1rem;
 }
 
+.page-content h3 {
+    font: 400 1.25rem var(--secondary);
+    margin-bottom: 1rem;
+}
+
 header.page-header {
     background-color: black;
     color: white;
@@ -441,6 +446,44 @@ section.wp-block-group .wp-block-group__inner-container {
     display: block;
     height: 42px;
     width: 28px;
+}
+
+.wpcf7 br {
+    display: none;
+}
+
+.wpcf7 .label-text {
+    display: block;
+    font: 500 1rem var(--primary);
+}
+
+.wpcf7 input,
+.wpcf7 textarea {
+    border: 0;
+    border-radius: 0.25rem;
+    display: block;
+    font: normal 1rem monospace;
+    padding: 0.5rem;
+    width: 100%;
+}
+
+.wpcf7 input:focus,
+.wpcf7 textarea:focus {
+    outline-color: var(--mustard);
+}
+
+.wpcf7 input[type=submit] {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    float: right;
+    font: 300 1rem var(--primary);
+    padding: 0.5rem 2rem;
+    width: fit-content;
+}
+
+.wpcf7 input[type=submit]:hover {
+    background-color: var(--mustard);
 }
 
 /* Responsive adjustments */
