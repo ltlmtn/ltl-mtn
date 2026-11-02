@@ -130,6 +130,7 @@ a:visited {
 }
 
 .page-content {
+    container-type: inline-size;
     position: relative;
     z-index: 1;
 }
@@ -523,6 +524,64 @@ footer#site-footer a {
     color: black;
     text-decoration: none;
 }
+
+.portfolio-archive {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.portfolio-archive h3 {
+    font-family: var(--primary);
+    margin: 1rem 0 0 0;
+}
+
+.portfolio-archive .portfolio-item:hover {
+    opacity: 0.85;
+}
+
+@container ( max-width: 1080px ) {
+    .portfolio-archive {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@container ( max-width: 800px ) {
+    .portfolio-archive {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@container ( max-width: 400px ) {
+    .portfolio-archive {
+        grid-template-columns: 1fr;
+    }
+}
+
+.single-portfolio .page-content {
+    max-width: 1024px;
+}
+
+.single-portfolio blockquote {
+    border: 2px solid var(--mustard);
+    border-left: 0;
+    border-right: 0;
+    font-size: 1.5em;
+    padding: 2rem 0;
+}
+
+.single-portfolio blockquote cite {
+    display: block;
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+
+.single-portfolio .wp-block-button__link {
+    display: block;
+    margin-top: 1rem;
+    width: fit-content;
+}
+
 
 /* Responsive adjustments */
 @media screen and (max-width: 1340px) {

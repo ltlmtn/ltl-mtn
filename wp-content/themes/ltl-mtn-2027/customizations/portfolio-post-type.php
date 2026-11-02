@@ -51,38 +51,11 @@ function add_portfolio_metaboxes() {
 
 function portfolio_options_callback($post) {
     wp_nonce_field(basename(__FILE__), 'portfolio_nonce');
-    $descriptive_title = get_post_meta($post->ID, '_portfolio_descriptive_title', true);
     $quote = get_post_meta($post->ID, '_portfolio_quote', true);
     $attribution = get_post_meta($post->ID, '_portfolio_attribution', true);
     $link = get_post_meta($post->ID, '_portfolio_link', true);
     $link_label = get_post_meta($post->ID, '_portfolio_link_label', true);
-    $feature_on_homepage = get_post_meta($post->ID, '_portfolio_feature_on_homepage', true);
-    $summary = get_post_meta($post->ID, '_portfolio_summary', true);
     ?>
-    <p>
-        <label for="portfolio_feature_on_homepage">
-            <input type="checkbox" name="portfolio_feature_on_homepage" id="portfolio_feature_on_homepage" value="1" <?php checked($feature_on_homepage, '1'); ?> />
-            Feature on Homepage
-        </label>
-    </p>
-    <p>
-        <label for="portfolio_descriptive_title">Descriptive Title:</label>
-        <input type="text" name="portfolio_descriptive_title" id="portfolio_descriptive_title" value="<?php echo esc_attr($descriptive_title); ?>" style="width:100%;" />
-    </p>
-    <p>
-        <label for="portfolio_summary">Summary:</label>
-        <?php
-        $settings = array(
-            'textarea_name' => 'portfolio_summary',
-            'editor_class' => 'portfolio_summary',
-            'media_buttons' => true,
-            'textarea_rows' => 10,
-            'teeny' => false,
-            'quicktags' => true
-        );
-        wp_editor($summary, 'portfolio_summary', $settings);
-        ?>
-    </p>
     <p>
         <label for="portfolio_quote">Quote:</label>
         <textarea name="portfolio_quote" id="portfolio_quote" rows="4" style="width:100%;"><?php echo esc_textarea($quote); ?></textarea>
@@ -120,16 +93,12 @@ function save_portfolio_metaboxes($post_id) {
     $descriptive_title = isset($_POST['portfolio_descriptive_title']) ? sanitize_text_field($_POST['portfolio_descriptive_title']) : '';
     $link = isset($_POST['portfolio_link']) ? esc_url($_POST['portfolio_link']) : '';
     $link_label = isset($_POST['portfolio_link_label']) ? sanitize_text_field($_POST['portfolio_link_label']) : '';
-    $feature_on_homepage = isset($_POST['portfolio_feature_on_homepage']) ? 1 : 0;
-    $summary = isset($_POST['portfolio_summary']) ? wp_kses_post($_POST['portfolio_summary']) : '';
 
     update_post_meta($post_id, '_portfolio_quote', $quote);
     update_post_meta($post_id, '_portfolio_attribution', $attribution);
     update_post_meta($post_id, '_portfolio_descriptive_title', $descriptive_title);
     update_post_meta($post_id, '_portfolio_link', $link);
     update_post_meta($post_id, '_portfolio_link_label', $link_label);
-    update_post_meta($post_id, '_portfolio_feature_on_homepage', $feature_on_homepage);
-    update_post_meta($post_id, '_portfolio_summary', $summary);
 }
 
 add_action('add_meta_boxes', 'add_portfolio_metaboxes');
